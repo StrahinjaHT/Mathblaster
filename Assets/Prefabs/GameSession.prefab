@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3090948097282693750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3090948097282693748}
+  - component: {fileID: 3090948097282693749}
+  m_Layer: 0
+  m_Name: GameSession
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3090948097282693748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090948097282693750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3090948097282693749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090948097282693750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d3906efd5cc0a4bb4746ed054e2713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+  waveText: {fileID: 0}
+  bullets:
+  - {fileID: 7803419379837782434, guid: 7cc2a38a08f1a18439b2b825fd705ddb, type: 3}
+  - {fileID: 7803419379837782434, guid: 8612062d9093be04b883ea59855f39b5, type: 3}
+  enemies:
+  - {fileID: 662861468615883712, guid: 586cd48d6d85df044a5d44cdf7a35656, type: 3}
+  - {fileID: 662861468615883712, guid: aa0d8b412d25e8a43bf80b6224b4c077, type: 3}
+  - {fileID: 662861468615883712, guid: 25fecb2152a63e849b2b2ecc14bd7ce0, type: 3}
+  - {fileID: 662861468615883712, guid: 99fe9d11e6b2e0c4a90deda3ebd23b5f, type: 3}
+  - {fileID: 662861468615883712, guid: 25ab0f044e9ac384497218225fabffa3, type: 3}
+  - {fileID: 662861468615883712, guid: 54562378e82060047be322daf42eb4f2, type: 3}
+  - {fileID: 662861468615883712, guid: af194e83da744dc4385478c41d6d3e48, type: 3}
+  - {fileID: 662861468615883712, guid: dad5ff491cffcf749bca16a5578bed7e, type: 3}
+  bulletPickUps:
+  - {fileID: 4832722405559898289, guid: 371c318e35ec6b541b63098d3e5fe5b2, type: 3}
+  - {fileID: 8735113067395471507, guid: 695edeb86b15c8d4fb96569faee1b009, type: 3}
+  waveDuration: 10
+  waveBreak: 5
+  wave: 1
