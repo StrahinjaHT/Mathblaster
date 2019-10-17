@@ -39,18 +39,63 @@ public class Enemy : MonoBehaviour
         
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ProcessHit(collision);
+    }
+
+    private void ProcessHit(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            if(this.number%collision.gameObject.GetComponent<Bullet>().number==0)
+            {
+                int x = this.number / collision.gameObject.GetComponent<Bullet>().number;
+                
+                switch (x)
+                {
+                    case 1:
+                        Destroy(gameObject);
 
-            Instantiate(One, transform.position, Quaternion.identity);
-            
+                        Instantiate(One, transform.position, Quaternion.identity);
+                        break;
+               
+                    default:
+                        Destroy(gameObject);
+                        Enemy enemy = new Enemy();
+                        foreach (Enemy e in FindObjectOfType<EnemySpawner>().Enemies)
+                        {
+                            if (e.number == x)
+                            {
+                                enemy = e;
+                            }
+                           
+                        }
+                        if(enemy==null)
+                        {
+                            foreach (Enemy e in FindObjectOfType<GameSession>().enemies)
+                            {
+                                if (e.number == x)
+                                {
+                                    enemy = e;
+                                }
+
+                            }
+                        }
+                        Instantiate(enemy, transform.position, Quaternion.identity);
+                        break;
+                }
+                //Destroy(gameObject);
+
+                //Instantiate(One, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                //collision.gameObject.GetComponent<Rigidbody2D>().mass = 0;
+            }
+            Destroy(collision.gameObject);
+
         }
-        
     }
-   
 }

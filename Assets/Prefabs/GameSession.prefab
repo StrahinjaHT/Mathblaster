@@ -50,16 +50,19 @@ MonoBehaviour:
   - {fileID: 7803419379837782434, guid: 8612062d9093be04b883ea59855f39b5, type: 3}
   enemies:
   - {fileID: 662861468615883712, guid: 586cd48d6d85df044a5d44cdf7a35656, type: 3}
-  - {fileID: 662861468615883712, guid: aa0d8b412d25e8a43bf80b6224b4c077, type: 3}
   - {fileID: 662861468615883712, guid: 25fecb2152a63e849b2b2ecc14bd7ce0, type: 3}
-  - {fileID: 662861468615883712, guid: 99fe9d11e6b2e0c4a90deda3ebd23b5f, type: 3}
+  - {fileID: 662861468615883712, guid: aa0d8b412d25e8a43bf80b6224b4c077, type: 3}
   - {fileID: 662861468615883712, guid: 25ab0f044e9ac384497218225fabffa3, type: 3}
+  - {fileID: 662861468615883712, guid: 99fe9d11e6b2e0c4a90deda3ebd23b5f, type: 3}
   - {fileID: 662861468615883712, guid: 54562378e82060047be322daf42eb4f2, type: 3}
   - {fileID: 662861468615883712, guid: af194e83da744dc4385478c41d6d3e48, type: 3}
   - {fileID: 662861468615883712, guid: dad5ff491cffcf749bca16a5578bed7e, type: 3}
   bulletPickUps:
   - {fileID: 4832722405559898289, guid: 371c318e35ec6b541b63098d3e5fe5b2, type: 3}
   - {fileID: 8735113067395471507, guid: 695edeb86b15c8d4fb96569faee1b009, type: 3}
+  - {fileID: 4832722405559898289, guid: 7e24fc9054d36c145a725bd82b7115eb, type: 3}
   waveDuration: 10
   waveBreak: 5
   wave: 1
+  timePassed: 0
+  wait: 0

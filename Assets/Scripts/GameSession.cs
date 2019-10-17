@@ -54,7 +54,11 @@ public class GameSession : MonoBehaviour
             if (timePassed > waveDuration)
             {
                 enemySpawner.AddEnemy();
-                bulletSpawner.AddBulletPickUp();
+                if(wave%2==0)
+                {
+                    bulletSpawner.AddBulletPickUp();
+                }
+               
                 StartCoroutine(UpdateWave());
                 timePassed = 0f;
             }

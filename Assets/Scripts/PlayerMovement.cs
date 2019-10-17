@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed=10f;
     GameSession gameSession;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
          gameSession = FindObjectOfType<GameSession>();
+         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,19 +30,26 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 offset = new Vector3(Xpos, Ypos,0);
 
-        transform.position += offset*speed*Time.deltaTime;
+        //transform.position += offset*speed*Time.deltaTime;
+        rb.velocity = offset * speed * Time.deltaTime;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        Destroy(gameObject);
+    //        FindObjectOfType<SceneLoader>().loadGameOver();
+    //    }
+    //}
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
             FindObjectOfType<SceneLoader>().loadGameOver();
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "PickUp")
+        else if (collision.gameObject.tag == "PickUp")
         {
             collision.gameObject.GetComponent<Collider2D>().enabled = false;
             PickUp pickUp = collision.gameObject.GetComponent<PickUp>();
@@ -51,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 GetComponent<PlayerShooting>().bullet = pickUp.bullet;
         }
+        
     }
    
 
