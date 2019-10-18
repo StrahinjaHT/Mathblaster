@@ -47,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-            FindObjectOfType<SceneLoader>().loadGameOver();
+            FindObjectOfType<SceneLoader>().LoadGameOver();
+            
         }
         else if (collision.gameObject.tag == "PickUp")
         {

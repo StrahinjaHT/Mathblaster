@@ -18,7 +18,7 @@ public class GameSession : MonoBehaviour
     BulletSpawner bulletSpawner;
     EnemySpawner enemySpawner;
 
-    private int score = 0;
+    public int score = 0;
     public int wave = 1;
     public float timePassed = 0f;
     public bool wait = false;

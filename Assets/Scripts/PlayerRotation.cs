@@ -6,8 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerRotation : MonoBehaviour
 {
-    [SerializeField] float sensitivity = 10f;
-    bool shooting = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,23 +22,27 @@ public class PlayerRotation : MonoBehaviour
 
     private void RotateAndShoot()
     {
-        if(Input.touchCount>0)
+        if(!PauseGame.gameIsPaused)
         {
-            
-            Touch touch = Input.GetTouch(Input.touchCount-1);
-            Vector2 touchPoint = Camera.main.ScreenToWorldPoint(touch.position);
-            if (touchPoint.x > -10)
+            if (Input.touchCount > 0)
             {
-                Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-                transform.up = touchPoint - pos;
-                if (touch.phase == TouchPhase.Began)
-                {
-                    Shoot();
-                }
-                
-            }
 
+                Touch touch = Input.GetTouch(Input.touchCount - 1);
+                Vector2 touchPoint = Camera.main.ScreenToWorldPoint(touch.position);
+                if (touchPoint.x > -10)
+                {
+                    Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+                    transform.up = touchPoint - pos;
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        Shoot();
+                    }
+
+                }
+
+            }
         }
+        
         
         
     }

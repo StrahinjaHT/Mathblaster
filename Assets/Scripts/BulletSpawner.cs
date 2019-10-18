@@ -7,14 +7,15 @@ public class BulletSpawner : MonoBehaviour
 
 
     [SerializeField] Transform[] bulletSpawnPoints;
-    [SerializeField] float startTimeBetweenSpawns;
+    [SerializeField] float minStartTimeBetweenSpawns;
+    [SerializeField] float maxStartTimeBetweenSpawns;
 
 
-    
+
     public List<PickUp> bulletPickUps;
 
-    
 
+    public float startTimeBetweenSpawns;
     float timeBetweenSpawns;
     
     GameSession gameSession;
@@ -27,7 +28,8 @@ public class BulletSpawner : MonoBehaviour
     void Start()
     {
         gameSession = FindObjectOfType<GameSession>();
-  
+
+        startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
         timeBetweenSpawns = startTimeBetweenSpawns;
         bulletPickUps = new List<PickUp>();
         AddBulletPickUp();
@@ -59,6 +61,7 @@ public class BulletSpawner : MonoBehaviour
                 int randomPos = Random.Range(0, bulletSpawnPoints.Length);
                 pickUp = bulletPickUps[Random.Range(0, bulletPickUps.Count)];
                 Instantiate(pickUp, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
+                startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
                 timeBetweenSpawns = startTimeBetweenSpawns;
             }
             else

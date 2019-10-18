@@ -6,14 +6,15 @@ public class EnemySpawner : MonoBehaviour
 {
 
     [SerializeField] Transform[] enemySpawnPoints;
-    [SerializeField] float startTimeBetweenSpawns;
+    [SerializeField] float minStartTimeBetweenSpawns;
+    [SerializeField] float maxStartTimeBetweenSpawns;
 
 
-    
+
     public List<Enemy> Enemies;
 
-   
 
+    public float startTimeBetweenSpawns;
     public float timeBetweenSpawns;
     
     GameSession gameSession;
@@ -23,8 +24,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         gameSession = FindObjectOfType<GameSession>();
-       
-        
+
+        startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
         timeBetweenSpawns = startTimeBetweenSpawns;
         Enemies = new List<Enemy>();
         AddEnemy();
@@ -55,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
                 int randomPos = Random.Range(0, enemySpawnPoints.Length);
                 enemy = Enemies[Random.Range(0, Enemies.Count)];
                 Instantiate(enemy, enemySpawnPoints[randomPos].transform.position, Quaternion.identity);
+                startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
                 timeBetweenSpawns = startTimeBetweenSpawns;
             }
             else
