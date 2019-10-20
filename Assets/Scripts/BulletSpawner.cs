@@ -53,9 +53,7 @@ public class BulletSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameSession.wait==false)
-        {
-            
+        
             if (timeBetweenSpawns <= 0)
             {
                 int randomPos = Random.Range(0, bulletSpawnPoints.Length);
@@ -68,7 +66,6 @@ public class BulletSpawner : MonoBehaviour
             {
                 timeBetweenSpawns -= Time.deltaTime;
             }
-        }
-        else timeBetweenSpawns = startTimeBetweenSpawns;
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,10 +9,15 @@ public class Enemy : MonoBehaviour
     Transform target;
     [SerializeField] float speed = 3f;
     [SerializeField] GameObject One;
-    [SerializeField] public int number = 1;
+    [SerializeField] AudioClip hitSFX;
+    [SerializeField] AudioClip notHitSFX;
+    AudioSource audioSource;
+    public int number;
     // Start is called before the first frame update
     void Start()
     {
+        number= Convert.ToInt32(GetComponent<TextMeshPro>().text);
+        //audioSource = GetComponent<AudioSource>();
         try
         {
             target = GameObject.FindObjectOfType<PlayerMovement>().transform;
@@ -52,7 +58,7 @@ public class Enemy : MonoBehaviour
             if(this.number%collision.gameObject.GetComponent<Bullet>().number==0)
             {
                 int x = this.number / collision.gameObject.GetComponent<Bullet>().number;
-                
+                //audioSource.PlayOneShot(hitSFX);
                 switch (x)
                 {
                     case 1:
@@ -86,15 +92,13 @@ public class Enemy : MonoBehaviour
                         Instantiate(enemy, transform.position, Quaternion.identity);
                         break;
                 }
-                //Destroy(gameObject);
-
-                //Instantiate(One, transform.position, Quaternion.identity);
+                
             }
             else
             {
-                //collision.gameObject.GetComponent<Rigidbody2D>().mass = 0;
+                //audioSource.PlayOneShot(notHitSFX);
             }
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
 
         }
     }

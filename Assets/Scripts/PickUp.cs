@@ -20,4 +20,5 @@ public class PickUp : MonoBehaviour
         if (time > timeUp) Destroy(gameObject);
         time += Time.deltaTime;
     }
+    
 }

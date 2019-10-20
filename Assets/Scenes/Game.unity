@@ -2764,10 +2764,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1072880284, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 572986695}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
 --- !u!1001 &7891637772664068395
@@ -2911,11 +2907,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 8673225668237809942, guid: 4020ecfaa30528b40ae7a52294b302f4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8673225668237809943, guid: 4020ecfaa30528b40ae7a52294b302f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2970,34 +2961,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673225667083113676, guid: 4020ecfaa30528b40ae7a52294b302f4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673225668163791970, guid: 4020ecfaa30528b40ae7a52294b302f4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 993515227, guid: 4020ecfaa30528b40ae7a52294b302f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1598575611, guid: 4020ecfaa30528b40ae7a52294b302f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673225668237809940, guid: 4020ecfaa30528b40ae7a52294b302f4,
-        type: 3}
-      propertyPath: minStartTimeBetweenSpawns
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673225668237809940, guid: 4020ecfaa30528b40ae7a52294b302f4,
-        type: 3}
-      propertyPath: maxStartTimeBetweenSpawns
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4020ecfaa30528b40ae7a52294b302f4, type: 3}

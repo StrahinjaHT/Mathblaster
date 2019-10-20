@@ -53,6 +53,7 @@ public class GameSession : MonoBehaviour
             timePassed += Time.deltaTime;
             if (timePassed > waveDuration)
             {
+
                 enemySpawner.AddEnemy();
                 if(wave%2==0)
                 {
@@ -79,6 +80,7 @@ public class GameSession : MonoBehaviour
     public IEnumerator UpdateWave()
     {
         wait = true;
+        yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
         waveText.text = "Wave " + wave;
         yield return new WaitForSeconds(waveBreak);
