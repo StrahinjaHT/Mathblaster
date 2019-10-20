@@ -39,6 +39,8 @@ public class SceneLoader : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene("Game");
+        PauseGame.gameIsPaused = false;
+        Time.timeScale = 1f;
         try
         {
             FindObjectOfType<GameSession>().ResetGame();
@@ -49,6 +51,22 @@ public class SceneLoader : MonoBehaviour
             
         }
         
+    }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Start Menu");
+        PauseGame.gameIsPaused = false;
+        Time.timeScale = 1f;
+        try
+        {
+            FindObjectOfType<GameSession>().ResetGame();
+        }
+        catch (NullReferenceException)
+        {
+
+
+        }
+
     }
     public void LoadGameOver()
     {
