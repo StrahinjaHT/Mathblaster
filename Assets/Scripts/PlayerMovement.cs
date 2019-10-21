@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed=10f;
     GameSession gameSession;
     Rigidbody2D rb;
+    SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
          gameSession = FindObjectOfType<GameSession>();
          rb = GetComponent<Rigidbody2D>();
+         soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
+            soundManager.playerDead();
             FindObjectOfType<SceneLoader>().LoadGameOver();
             
         }

@@ -17,6 +17,7 @@ public class GameSession : MonoBehaviour
 
     BulletSpawner bulletSpawner;
     EnemySpawner enemySpawner;
+    SoundManager soundManager;
 
     public int score = 0;
     public int wave = 1;
@@ -42,6 +43,7 @@ public class GameSession : MonoBehaviour
     {
         bulletSpawner = FindObjectOfType<BulletSpawner>();
         enemySpawner = FindObjectOfType<EnemySpawner>();
+        soundManager = FindObjectOfType<SoundManager>();
         scoreText.text = score.ToString();
     }
 
@@ -74,6 +76,7 @@ public class GameSession : MonoBehaviour
     }
     public void ResetGame()
     {
+        Destroy(soundManager.gameObject);
         Destroy(gameObject);
 
     }

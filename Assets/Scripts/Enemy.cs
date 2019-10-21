@@ -9,15 +9,15 @@ public class Enemy : MonoBehaviour
     Transform target;
     [SerializeField] float speed = 3f;
     [SerializeField] GameObject One;
-    [SerializeField] AudioClip hitSFX;
-    [SerializeField] AudioClip notHitSFX;
-    AudioSource audioSource;
+    
+   
     public int number;
+    SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
         number= Convert.ToInt32(GetComponent<TextMeshPro>().text);
-        //audioSource = GetComponent<AudioSource>();
+        soundManager = FindObjectOfType<SoundManager>();
         try
         {
             target = GameObject.FindObjectOfType<PlayerMovement>().transform;
@@ -57,8 +57,10 @@ public class Enemy : MonoBehaviour
         {
             if(this.number%collision.gameObject.GetComponent<Bullet>().number==0)
             {
+                soundManager.enemyIsHit();
+
                 int x = this.number / collision.gameObject.GetComponent<Bullet>().number;
-                //audioSource.PlayOneShot(hitSFX);
+                
                 switch (x)
                 {
                     case 1:
@@ -96,9 +98,9 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                //audioSource.PlayOneShot(notHitSFX);
+                soundManager.enemyIsNotsHit();
             }
-            //Destroy(collision.gameObject);
+            
 
         }
     }

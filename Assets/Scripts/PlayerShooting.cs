@@ -8,13 +8,13 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] public Bullet bullet;
     [SerializeField] GameObject gun;
-    [SerializeField] AudioClip shoot;
 
-    AudioSource audioSource;
+    SoundManager soundManager;
+    
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class PlayerShooting : MonoBehaviour
     {
         
         var gunPos = gun.transform.position;
-        audioSource.PlayOneShot(shoot);
+        soundManager.shotsFired();
         Bullet instance = Instantiate(bullet, gunPos, transform.rotation);
 
     }
