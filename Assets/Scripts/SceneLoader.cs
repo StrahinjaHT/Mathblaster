@@ -9,11 +9,14 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI highScoreText;
-    SoundManager soundManager;
+    
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        soundManager = FindObjectOfType<SoundManager>();
+        
         if(scoreText!=null)
         {
             int score = FindObjectOfType<GameSession>().score;
@@ -38,7 +41,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
-        soundManager.clicked();
+        FindObjectOfType<SoundManager>().clicked();
         SceneManager.LoadScene("Game");
         
         PauseGame.gameIsPaused = false;
@@ -56,7 +59,8 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
-        soundManager.clicked();
+
+        FindObjectOfType<SoundManager>().clicked();
         SceneManager.LoadScene("Start Menu");
         
         PauseGame.gameIsPaused = false;
@@ -72,6 +76,16 @@ public class SceneLoader : MonoBehaviour
         }
 
     }
+    public void LoadOptionsMenu()
+    {
+        FindObjectOfType<SoundManager>().clicked();
+        SceneManager.LoadScene("Options Menu");
+
+        
+        
+        
+
+    }
     public void LoadGameOver()
     {
         SceneManager.LoadScene("Game Over");
@@ -81,7 +95,7 @@ public class SceneLoader : MonoBehaviour
 
     public void QuitGame()
     {
-        soundManager.clicked();
+        FindObjectOfType<SoundManager>().clicked();
         Application.Quit();
     }
 }

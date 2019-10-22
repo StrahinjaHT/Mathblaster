@@ -1508,7 +1508,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1861490025}
-        m_MethodName: LoadGame
+        m_MethodName: LoadOptionsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1647,6 +1647,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
+        type: 3}
+      propertyPath: highScoreText
+      value: 
+      objectReference: {fileID: 712266627}
     - target: {fileID: 8370538970983808275, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1702,10 +1707,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
-        type: 3}
-      propertyPath: highScoreText
-      value: 
-      objectReference: {fileID: 712266627}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa923c7b85d7b649a00209a02a2fc9b, type: 3}
