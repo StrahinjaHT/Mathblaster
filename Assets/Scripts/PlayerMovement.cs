@@ -35,21 +35,14 @@ public class PlayerMovement : MonoBehaviour
         //transform.position += offset*speed*Time.deltaTime;
         rb.velocity = offset * speed * Time.deltaTime;
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Enemy")
-    //    {
-    //        Destroy(gameObject);
-    //        FindObjectOfType<SceneLoader>().loadGameOver();
-    //    }
-    //}
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-            soundManager.playerDead();
+            soundManager.PlayerDead();
             FindObjectOfType<SceneLoader>().LoadGameOver();
             
         }
@@ -58,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<Collider2D>().enabled = false;
             PickUp pickUp = collision.gameObject.GetComponent<PickUp>();
             Destroy(collision.gameObject);
-            //          Debug.Log("One");
+            
             if (pickUp.name.Contains("One"))
                 FindObjectOfType<GameSession>().UpdateScore();
             else

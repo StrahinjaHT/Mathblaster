@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         {
             if(this.number%collision.gameObject.GetComponent<Bullet>().number==0)
             {
-                soundManager.enemyIsHit();
+                soundManager.EnemyIsHit();
 
                 int x = this.number / collision.gameObject.GetComponent<Bullet>().number;
                 
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                soundManager.enemyIsNotsHit();
+                soundManager.EnemyIsNotsHit();
             }
             
 

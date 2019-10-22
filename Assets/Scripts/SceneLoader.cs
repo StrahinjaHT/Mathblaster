@@ -41,7 +41,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
-        FindObjectOfType<SoundManager>().clicked();
+        FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Game");
         
         PauseGame.gameIsPaused = false;
@@ -60,7 +60,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadMenu()
     {
 
-        FindObjectOfType<SoundManager>().clicked();
+        FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Start Menu");
         
         PauseGame.gameIsPaused = false;
@@ -78,7 +78,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadOptionsMenu()
     {
-        FindObjectOfType<SoundManager>().clicked();
+        FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Options Menu");
 
         
@@ -95,7 +95,7 @@ public class SceneLoader : MonoBehaviour
 
     public void QuitGame()
     {
-        FindObjectOfType<SoundManager>().clicked();
+        FindObjectOfType<SoundManager>().Clicked();
         Application.Quit();
     }
 }

@@ -27,7 +27,7 @@ public class PlayerShooting : MonoBehaviour
     {
         
         var gunPos = gun.transform.position;
-        soundManager.shotsFired();
+        soundManager.ShotsFired();
         Bullet instance = Instantiate(bullet, gunPos, transform.rotation);
 
     }

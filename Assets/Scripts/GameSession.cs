@@ -45,7 +45,7 @@ public class GameSession : MonoBehaviour
         enemySpawner = FindObjectOfType<EnemySpawner>();
         soundManager = FindObjectOfType<SoundManager>();
         scoreText.text = score.ToString();
-        soundManager.playTheme();
+        soundManager.PlayTheme();
     }
 
     // Update is called once per frame

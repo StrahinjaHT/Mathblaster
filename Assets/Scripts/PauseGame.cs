@@ -21,7 +21,7 @@ public class PauseGame : MonoBehaviour
 
     public void PauseOrUResume()
     {
-        soundManager.clicked();
+        soundManager.Clicked();
         if (gameIsPaused)
         {
             Resume();

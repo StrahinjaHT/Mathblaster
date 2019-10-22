@@ -16,9 +16,12 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DestroyAfterSetTime();
+    }
 
+    private void DestroyAfterSetTime()
+    {
         if (time > timeUp) Destroy(gameObject);
         time += Time.deltaTime;
     }
-    
 }

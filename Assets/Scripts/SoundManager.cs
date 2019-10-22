@@ -39,31 +39,31 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    public void enemyIsHit()
+    public void EnemyIsHit()
     {
         audioSource.PlayOneShot(hitSFX,1f);
     }
-    public void enemyIsNotsHit()
+    public void EnemyIsNotsHit()
     {
         audioSource.PlayOneShot(notHitSFX,0.7f);
     }
-    public void shotsFired()
+    public void ShotsFired()
     {
         audioSource.PlayOneShot(shot,0.4f);
     }
-    public void playerDead()
+    public void PlayerDead()
     {
         audioSource.PlayOneShot(playerDeath,0.8f);
     }
-    public void clicked()
+    public void Clicked()
     {
         audioSource.PlayOneShot(click,0.7f);
     }
-    public void playTheme()
+    public void PlayTheme()
     {
         audioSource.Play();
     }
-    public void stopTheme()
+    public void StopTheme()
     {
         audioSource.Stop();
     }
