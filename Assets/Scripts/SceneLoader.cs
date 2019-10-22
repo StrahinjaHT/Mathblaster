@@ -9,11 +9,11 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI highScoreText;
-
+    SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        soundManager = FindObjectOfType<SoundManager>();
         if(scoreText!=null)
         {
             int score = FindObjectOfType<GameSession>().score;
@@ -38,7 +38,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
+        soundManager.clicked();
         SceneManager.LoadScene("Game");
+        
         PauseGame.gameIsPaused = false;
         Time.timeScale = 1f;
         try
@@ -54,7 +56,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
+        soundManager.clicked();
         SceneManager.LoadScene("Start Menu");
+        
         PauseGame.gameIsPaused = false;
         Time.timeScale = 1f;
         try
@@ -77,6 +81,7 @@ public class SceneLoader : MonoBehaviour
 
     public void QuitGame()
     {
+        soundManager.clicked();
         Application.Quit();
     }
 }

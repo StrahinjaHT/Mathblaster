@@ -80,6 +80,9 @@ MonoBehaviour:
   - {fileID: 4624136234616681574}
   - {fileID: 4624136234629658353}
   - {fileID: 4624136234102227762}
+  minStartTimeBetweenSpawns: 3
+  maxStartTimeBetweenSpawns: 6
+  bulletPickUps: []
   startTimeBetweenSpawns: 2
 --- !u!1 &4624136233434196376
 GameObject:

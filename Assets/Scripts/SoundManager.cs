@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip notHitSFX;
     [SerializeField] AudioClip shot;
     [SerializeField] AudioClip playerDeath;
+    [SerializeField] AudioClip click;
+    
     AudioSource audioSource;
 
     private void Awake()
@@ -50,6 +53,19 @@ public class SoundManager : MonoBehaviour
     }
     public void playerDead()
     {
-        audioSource.PlayOneShot(playerDeath);
+        audioSource.PlayOneShot(playerDeath,0.8f);
     }
+    public void clicked()
+    {
+        audioSource.PlayOneShot(click,0.7f);
+    }
+    public void playTheme()
+    {
+        audioSource.Play();
+    }
+    public void stopTheme()
+    {
+        audioSource.Stop();
+    }
+
 }

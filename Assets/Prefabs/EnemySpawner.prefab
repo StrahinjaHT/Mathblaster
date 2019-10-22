@@ -270,7 +270,7 @@ MonoBehaviour:
   - {fileID: 993515227}
   - {fileID: 1060019905}
   - {fileID: 1598575611}
-  minStartTimeBetweenSpawns: 2
+  minStartTimeBetweenSpawns: 1
   maxStartTimeBetweenSpawns: 4
   Enemies: []
   startTimeBetweenSpawns: 3

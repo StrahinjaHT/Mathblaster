@@ -21,7 +21,8 @@ public class PauseGame : MonoBehaviour
 
     public void PauseOrUResume()
     {
-        if(gameIsPaused)
+        soundManager.clicked();
+        if (gameIsPaused)
         {
             Resume();
         }
@@ -32,6 +33,7 @@ public class PauseGame : MonoBehaviour
     }
     public void Resume()
     {
+        
         pauseMenuUI.SetActive(false);
         gameIsPaused = false;
         Time.timeScale = 1f;
@@ -40,6 +42,7 @@ public class PauseGame : MonoBehaviour
     }
     void Pause()
     {
+        
         pauseMenuUI.SetActive(true);
         gameIsPaused = true;
         Time.timeScale = 0f;
