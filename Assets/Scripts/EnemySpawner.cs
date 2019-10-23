@@ -54,6 +54,10 @@ public class EnemySpawner : MonoBehaviour
             if (timeBetweenSpawns <= 0)
             {
                 int randomPos = Random.Range(0, enemySpawnPoints.Length);
+                if(Vector2.Distance(enemySpawnPoints[randomPos].position,FindObjectOfType<PlayerMovement>().transform.position) <2f)
+                {
+                    randomPos = Random.Range(0, enemySpawnPoints.Length);
+                }
                 enemy = Enemies[Random.Range(0, Enemies.Count)];
                 Instantiate(enemy, enemySpawnPoints[randomPos].transform.position, Quaternion.identity);
                 startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);

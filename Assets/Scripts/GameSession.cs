@@ -17,7 +17,7 @@ public class GameSession : MonoBehaviour
 
     BulletSpawner bulletSpawner;
     EnemySpawner enemySpawner;
-    SoundManager soundManager;
+    public SoundManager soundManager;
 
     public int score = 0;
     public int wave = 1;
