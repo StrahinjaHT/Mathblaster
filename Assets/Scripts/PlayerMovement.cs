@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             if (pickUp.name.Contains("One"))
                 FindObjectOfType<GameSession>().UpdateScore();
             else
-                GetComponent<PlayerShooting>().bullet = pickUp.bullet;
+                GetComponent<PlayerShooting>().bulletObject= pickUp.bulletObject;
         }
         
     }

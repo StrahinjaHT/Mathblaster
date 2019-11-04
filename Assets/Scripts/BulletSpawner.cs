@@ -12,14 +12,14 @@ public class BulletSpawner : MonoBehaviour
 
 
 
-    public List<PickUp> bulletPickUps;
+    public List<BulletObject> bulletObjects;
 
 
     public float startTimeBetweenSpawns;
     float timeBetweenSpawns;
     
     GameSession gameSession;
-    PickUp pickUp;
+    public PickUp pickUp;
 
 
 
@@ -31,17 +31,17 @@ public class BulletSpawner : MonoBehaviour
 
         startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
         timeBetweenSpawns = startTimeBetweenSpawns;
-        bulletPickUps = new List<PickUp>();
+        bulletObjects = new List<BulletObject>();
         AddBulletPickUp();
     }
 
     public void AddBulletPickUp()
     {
-        if(gameSession.bulletPickUps.Count!=0)
+        if(gameSession.bulletObjects.Count!=0)
         {
-            PickUp newBulletPickUp = gameSession.bulletPickUps[0];
-            gameSession.bulletPickUps.Remove(newBulletPickUp);
-            bulletPickUps.Add(newBulletPickUp);
+            BulletObject newBulletObject = gameSession.bulletObjects[0];
+            gameSession.bulletObjects.Remove(newBulletObject);
+            bulletObjects.Add(newBulletObject);
             
         }
         
@@ -57,7 +57,7 @@ public class BulletSpawner : MonoBehaviour
             if (timeBetweenSpawns <= 0)
             {
                 int randomPos = Random.Range(0, bulletSpawnPoints.Length);
-                pickUp = bulletPickUps[Random.Range(0, bulletPickUps.Count)];
+                pickUp.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
                 Instantiate(pickUp, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
                 startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
                 timeBetweenSpawns = startTimeBetweenSpawns;

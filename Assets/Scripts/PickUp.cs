@@ -1,16 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField] float time = 0f;
-    [SerializeField] float timeUp = 5f;
-    [SerializeField] public Bullet bullet;
+    public float time = 0f;
+    public float timeUp = 5f;
+
+    [SerializeField] public BulletObject bulletObject;
+    TextMeshPro textMeshPro;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetUpPickUp();
+    }
+
+    private void SetUpPickUp()
+    {
+        try
+        {
+
+            textMeshPro = GetComponent<TextMeshPro>();
+            textMeshPro.text = bulletObject.number.ToString();
+            textMeshPro.color = bulletObject.color;
+        }
+        catch (Exception)
+        {
+
+            
+        }
     }
 
     // Update is called once per frame

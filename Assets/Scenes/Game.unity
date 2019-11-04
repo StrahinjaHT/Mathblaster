@@ -2759,6 +2759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3090948097282693749, guid: 885f682b0f08fd64d97832cd76b463a2,
         type: 3}
+      propertyPath: bulletObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090948097282693749, guid: 885f682b0f08fd64d97832cd76b463a2,
+        type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1580204000}
@@ -2767,6 +2772,24 @@ PrefabInstance:
       propertyPath: waveText
       value: 
       objectReference: {fileID: 2099504403}
+    - target: {fileID: 3090948097282693749, guid: 885f682b0f08fd64d97832cd76b463a2,
+        type: 3}
+      propertyPath: bulletObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4,
+        type: 2}
+    - target: {fileID: 3090948097282693749, guid: 885f682b0f08fd64d97832cd76b463a2,
+        type: 3}
+      propertyPath: bulletObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1fd71c0e0749e6c45b7d0fc037acbfe5,
+        type: 2}
+    - target: {fileID: 3090948097282693749, guid: 885f682b0f08fd64d97832cd76b463a2,
+        type: 3}
+      propertyPath: bulletObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: bd221d98aa9fd704e9b30a6eaa5ff897,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 885f682b0f08fd64d97832cd76b463a2, type: 3}
 --- !u!1001 &4624136234428706831
@@ -2910,6 +2933,18 @@ PrefabInstance:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 155481845}
+    - target: {fileID: 6854359619187084667, guid: 32182e843624e0b48963f2078dd8422b,
+        type: 3}
+      propertyPath: bulletObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4,
+        type: 2}
+    - target: {fileID: 6854359619187084667, guid: 32182e843624e0b48963f2078dd8422b,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1590252558044138432, guid: b8f2aba923e2e7f408c813376580f8fd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
 --- !u!1001 &7891637772664068395

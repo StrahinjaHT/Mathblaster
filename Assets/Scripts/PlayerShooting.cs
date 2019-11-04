@@ -6,15 +6,17 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] public Bullet bullet;
+    [SerializeField] public BulletObject bulletObject;
+    [SerializeField] public GameObject bullet;
     [SerializeField] GameObject gun;
 
-   public  SoundManager soundManager;
+    public  SoundManager soundManager;
     
     // Start is called before the first frame update
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
+        
     }
 
     // Update is called once per frame
@@ -28,7 +30,10 @@ public class PlayerShooting : MonoBehaviour
         
         var gunPos = gun.transform.position;
         soundManager.ShotsFired();
-        Bullet instance = Instantiate(bullet, gunPos, transform.rotation);
+        bullet.GetComponent<Bullet>().bulletObject = bulletObject;
+        bullet.GetComponent<Bullet>().SetBullet();
+        
+        Instantiate(bullet, gunPos, transform.rotation);
 
     }
 }

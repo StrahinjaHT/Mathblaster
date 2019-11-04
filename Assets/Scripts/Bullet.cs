@@ -6,20 +6,38 @@ using System;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float speed = 50f;
-    [SerializeField] ParticleSystem explosionVFX;
     
-    public int number;
+    [SerializeField] ParticleSystem explosionVFX;
+    public BulletObject bulletObject;
     Rigidbody2D rb;
+    TextMeshPro textMeshPro;
+    public float speed;
+    public int number;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * speed;
-        number = Convert.ToInt32(GetComponent<TextMeshPro>().text);
-        explosionVFX.startColor = GetComponent<TextMeshPro>().color;
+        SetBullet();
     }
 
+    public void SetBullet()
+    {
+        number = bulletObject.number;
+
+        textMeshPro = GetComponent<TextMeshPro>();
+        textMeshPro.text = number.ToString();
+        textMeshPro.color = bulletObject.color;
+        explosionVFX.startColor = bulletObject.color;
+
+        rb = GetComponent<Rigidbody2D>();
+        speed = bulletObject.speed;
+        rb.velocity = transform.up * speed;
+    }
+
+    public Bullet(BulletObject bulletObject)
+    {
+        this.bulletObject = bulletObject;
+        SetBullet();
+    }
     // Update is called once per frame
     void Update()
     {

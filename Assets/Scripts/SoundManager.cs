@@ -50,8 +50,7 @@ public class SoundManager : MonoBehaviour
     }
     public void ShotsFired()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.enabled = true;
+
         audioSource.PlayOneShot(shot,0.4f);
     }
     public void PlayerDead()
@@ -65,8 +64,8 @@ public class SoundManager : MonoBehaviour
     public void PlayTheme()
     {
         
-        audioSource = GetComponent<AudioSource>();
-        audioSource.enabled = true;
+      //  audioSource = GetComponent<AudioSource>();
+
         audioSource.Play();
     }
     public void StopTheme()
