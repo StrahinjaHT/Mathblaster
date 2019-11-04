@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] public Bullet bullet;
     [SerializeField] GameObject gun;
 
-    SoundManager soundManager;
+   public  SoundManager soundManager;
     
     // Start is called before the first frame update
     void Start()

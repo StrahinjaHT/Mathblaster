@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = true;
     }
 
     // Update is called once per frame
@@ -49,6 +50,8 @@ public class SoundManager : MonoBehaviour
     }
     public void ShotsFired()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = true;
         audioSource.PlayOneShot(shot,0.4f);
     }
     public void PlayerDead()
@@ -61,7 +64,9 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayTheme()
     {
+        
         audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = true;
         audioSource.Play();
     }
     public void StopTheme()

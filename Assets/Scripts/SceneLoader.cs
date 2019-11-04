@@ -16,20 +16,28 @@ public class SceneLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        if(scoreText!=null)
+
+        try
         {
-            int score = FindObjectOfType<GameSession>().score;
-            scoreText.text = "Score: " + score.ToString();
-            if(score>PlayerPrefs.GetInt("HighScore"))
+            if (scoreText != null)
             {
-                PlayerPrefs.SetInt("HighScore", score);
+                int score = FindObjectOfType<GameSession>().score;
+                scoreText.text = "Score: " + score.ToString();
+                if (score > PlayerPrefs.GetInt("HighScore"))
+                {
+                    PlayerPrefs.SetInt("HighScore", score);
+                }
+
             }
-            
+            if (highScoreText != null)
+            {
+                highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+            }
         }
-        if (highScoreText != null)
+        catch (Exception)
         {
-            highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+
+            
         }
 
     }

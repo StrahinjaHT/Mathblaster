@@ -1469,6 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 49594ea0f54668547ba7818992ef2e09, type: 2}
+  slider: {fileID: 1791632256}
 --- !u!114 &1861490025 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
@@ -1670,11 +1671,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
-        type: 3}
-      propertyPath: highScoreText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8370538970983808275, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1729,6 +1725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
+        type: 3}
+      propertyPath: highScoreText
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa923c7b85d7b649a00209a02a2fc9b, type: 3}
