@@ -64,7 +64,7 @@ public class SoundManager : MonoBehaviour
     public void PlayTheme()
     {
         
-      //  audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         audioSource.Play();
     }

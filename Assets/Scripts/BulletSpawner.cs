@@ -11,15 +11,15 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] float maxStartTimeBetweenSpawns;
 
 
-
+    public PickUp pickUp;
     public List<BulletObject> bulletObjects;
 
 
     public float startTimeBetweenSpawns;
     float timeBetweenSpawns;
-    
+
     GameSession gameSession;
-    public PickUp pickUp;
+
 
 
 
@@ -37,35 +37,40 @@ public class BulletSpawner : MonoBehaviour
 
     public void AddBulletPickUp()
     {
-        if(gameSession.bulletObjects.Count!=0)
+        if (gameSession.bulletObjects.Count != 0)
         {
             BulletObject newBulletObject = gameSession.bulletObjects[0];
             gameSession.bulletObjects.Remove(newBulletObject);
             bulletObjects.Add(newBulletObject);
-            
+
         }
-        
+
     }
 
-    
-    
+
+
 
     // Update is called once per frame
     void Update()
     {
-        
-            if (timeBetweenSpawns <= 0)
-            {
-                int randomPos = Random.Range(0, bulletSpawnPoints.Length);
-                pickUp.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
-                Instantiate(pickUp, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
-                startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
-                timeBetweenSpawns = startTimeBetweenSpawns;
-            }
-            else
-            {
-                timeBetweenSpawns -= Time.deltaTime;
-            }
-        
+
+        if (timeBetweenSpawns <= 0)
+        {
+            SpawnBulletPickUp();
+            startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
+            timeBetweenSpawns = startTimeBetweenSpawns;
+        }
+        else
+        {
+            timeBetweenSpawns -= Time.deltaTime;
+        }
+
+    }
+
+    private void SpawnBulletPickUp()
+    {
+        int randomPos = Random.Range(0, bulletSpawnPoints.Length);
+        pickUp.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
+        Instantiate(pickUp, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
     }
 }

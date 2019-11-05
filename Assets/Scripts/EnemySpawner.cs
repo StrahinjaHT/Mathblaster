@@ -8,17 +8,19 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform[] enemySpawnPoints;
     [SerializeField] float minStartTimeBetweenSpawns;
     [SerializeField] float maxStartTimeBetweenSpawns;
+    [SerializeField] public  GameObject One;
 
-
-
-    public List<Enemy> Enemies;
+    public Enemy enemy;
+    public List<EnemyObject> Enemies;
 
 
     public float startTimeBetweenSpawns;
     public float timeBetweenSpawns;
     
     GameSession gameSession;
-    Enemy enemy;
+   
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
         startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
         timeBetweenSpawns = startTimeBetweenSpawns;
-        Enemies = new List<Enemy>();
+        Enemies = new List<EnemyObject>();
         AddEnemy();
     }
 
@@ -35,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (gameSession.enemies.Count != 0)
         {
-            Enemy newEnemy = gameSession.enemies[0];
+            EnemyObject newEnemy = gameSession.enemies[0];
             gameSession.enemies.Remove(newEnemy);
             Enemies.Add(newEnemy);
             
@@ -53,13 +55,7 @@ public class EnemySpawner : MonoBehaviour
             
             if (timeBetweenSpawns <= 0)
             {
-                int randomPos = Random.Range(0, enemySpawnPoints.Length);
-                if(Vector2.Distance(enemySpawnPoints[randomPos].position,FindObjectOfType<PlayerMovement>().transform.position) <2f)
-                {
-                    randomPos = Random.Range(0, enemySpawnPoints.Length);
-                }
-                enemy = Enemies[Random.Range(0, Enemies.Count)];
-                Instantiate(enemy, enemySpawnPoints[randomPos].transform.position, Quaternion.identity);
+                SpawnEnemy();
                 startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
                 timeBetweenSpawns = startTimeBetweenSpawns;
             }
@@ -69,5 +65,28 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         else timeBetweenSpawns = startTimeBetweenSpawns;
+    }
+
+    private void SpawnEnemy()
+    {
+        int randomPos = SelectPosition();
+        enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
+
+        Instantiate(enemy, enemySpawnPoints[randomPos].transform.position, Quaternion.identity);
+    }
+
+    private int SelectPosition()
+    {
+        int randomPos;
+        //if (Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<PlayerMovement>().transform.position) < 2f)
+        //{
+        //    randomPos = Random.Range(0, enemySpawnPoints.Length);
+        //}
+        do
+        {
+            randomPos = Random.Range(0, enemySpawnPoints.Length);
+        } while ((Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<PlayerMovement>().transform.position) < 2f));
+
+        return randomPos;
     }
 }

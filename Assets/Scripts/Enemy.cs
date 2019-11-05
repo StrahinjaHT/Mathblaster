@@ -7,28 +7,49 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Transform target;
-    [SerializeField] float speed = 3f;
-    [SerializeField] GameObject One;
-    
-   
+    public EnemyObject enemyObject;
+    EnemySpawner enemySpawner;
+
+    public float speed;
     public int number;
     SoundManager soundManager;
+    TextMeshPro textMeshPro;
     // Start is called before the first frame update
     void Start()
     {
-        number= Convert.ToInt32(GetComponent<TextMeshPro>().text);
+        enemySpawner = FindObjectOfType<EnemySpawner>();
+        SetEnemy();
+    }
+
+    private void SetEnemy()
+    {
+        number = enemyObject.number;
+
+        speed = enemyObject.speed;
+
+        textMeshPro = GetComponent<TextMeshPro>();
+        textMeshPro.text = number.ToString();
+        textMeshPro.color = enemyObject.color;
+
+        //enemy = gameObject;
+
         soundManager = FindObjectOfType<SoundManager>();
         try
         {
-            target = GameObject.FindObjectOfType<PlayerMovement>().transform;
+            target = FindObjectOfType<PlayerMovement>().transform;
         }
         catch (Exception)
         {
 
-            target=null;
+            target = null;
         }
     }
 
+    public Enemy(EnemyObject enemyObject)
+    {
+        this.enemyObject = enemyObject;
+        SetEnemy();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -38,12 +59,9 @@ public class Enemy : MonoBehaviour
 
     private void EnemyFollow()
     {
-        
-        
+                
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        
-        
-        
+
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,32 +84,35 @@ public class Enemy : MonoBehaviour
                     case 1:
                         Destroy(gameObject);
 
-                        Instantiate(One, transform.position, Quaternion.identity);
+                        Instantiate(enemySpawner.One, transform.position, Quaternion.identity);
                         break;
                
                     default:
                         Destroy(gameObject);
-                        Enemy enemy = new Enemy();
-                        foreach (Enemy e in FindObjectOfType<EnemySpawner>().Enemies)
+                        
+                        foreach (EnemyObject e in FindObjectOfType<EnemySpawner>().Enemies)
                         {
                             if (e.number == x)
                             {
-                                enemy = e;
+                                enemySpawner.enemy.enemyObject = e;
                             }
                            
                         }
-                        if(enemy==null)
+                        if(enemyObject==null)
                         {
-                            foreach (Enemy e in FindObjectOfType<GameSession>().enemies)
+                            foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
                             {
                                 if (e.number == x)
                                 {
-                                    enemy = e;
+                                    enemySpawner.enemy.enemyObject = e;
                                 }
 
                             }
                         }
-                        Instantiate(enemy, transform.position, Quaternion.identity);
+                        
+                        //enemy.GetComponent<Enemy>().enemyObject = enemyObject;
+                        //enemy.SetEnemy();
+                        Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
                         break;
                 }
                 
