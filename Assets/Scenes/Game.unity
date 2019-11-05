@@ -2880,22 +2880,10 @@ PrefabInstance:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 155481845}
-    - target: {fileID: 6854359619187084667, guid: 32182e843624e0b48963f2078dd8422b,
-        type: 3}
-      propertyPath: bulletObject
-      value: 
-      objectReference: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4,
-        type: 2}
-    - target: {fileID: 6854359619187084667, guid: 32182e843624e0b48963f2078dd8422b,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 1590252558044138432, guid: b8f2aba923e2e7f408c813376580f8fd,
-        type: 3}
     - target: {fileID: 5537317335847044831, guid: 32182e843624e0b48963f2078dd8422b,
         type: 3}
       propertyPath: speed
-      value: 350
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32182e843624e0b48963f2078dd8422b, type: 3}

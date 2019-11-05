@@ -25,6 +25,11 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetUpEnemySpawner();
+    }
+
+    private void SetUpEnemySpawner()
+    {
         gameSession = FindObjectOfType<GameSession>();
 
         startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
@@ -78,10 +83,7 @@ public class EnemySpawner : MonoBehaviour
     private int SelectPosition()
     {
         int randomPos;
-        //if (Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<PlayerMovement>().transform.position) < 2f)
-        //{
-        //    randomPos = Random.Range(0, enemySpawnPoints.Length);
-        //}
+        
         do
         {
             randomPos = Random.Range(0, enemySpawnPoints.Length);

@@ -17,12 +17,14 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemySpawner = FindObjectOfType<EnemySpawner>();
+        
         SetEnemy();
     }
 
     private void SetEnemy()
     {
+        
+
         number = enemyObject.number;
 
         speed = enemyObject.speed;
@@ -31,8 +33,8 @@ public class Enemy : MonoBehaviour
         textMeshPro.text = number.ToString();
         textMeshPro.color = enemyObject.color;
 
-        //enemy = gameObject;
 
+        enemySpawner = FindObjectOfType<EnemySpawner>();
         soundManager = FindObjectOfType<SoundManager>();
         try
         {
@@ -45,11 +47,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public Enemy(EnemyObject enemyObject)
-    {
-        this.enemyObject = enemyObject;
-        SetEnemy();
-    }
+    //public Enemy(EnemyObject enemyObject)
+    //{
+    //    this.enemyObject = enemyObject;
+    //    SetEnemy();
+    //}
     // Update is called once per frame
     void Update()
     {
@@ -110,8 +112,7 @@ public class Enemy : MonoBehaviour
                             }
                         }
                         
-                        //enemy.GetComponent<Enemy>().enemyObject = enemyObject;
-                        //enemy.SetEnemy();
+                        
                         Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
                         break;
                 }

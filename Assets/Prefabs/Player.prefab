@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14fd75603bbe2f94da1b76c9ee173d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 15
 --- !u!114 &6854359619187084667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,8 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13514e8c6901249458d02e52ffd4b6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7803419379837782434, guid: 7cc2a38a08f1a18439b2b825fd705ddb, type: 3}
+  bulletObject: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4, type: 2}
+  bullet: {fileID: 1590252558044138432, guid: b8f2aba923e2e7f408c813376580f8fd, type: 3}
   gun: {fileID: 5537317335375171249}
+  soundManager: {fileID: 0}
 --- !u!114 &1072880284
 MonoBehaviour:
   m_ObjectHideFlags: 0

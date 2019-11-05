@@ -33,11 +33,11 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    public Bullet(BulletObject bulletObject)
-    {
-        this.bulletObject = bulletObject;
-        SetBullet();
-    }
+    //public Bullet(BulletObject bulletObject)
+    //{
+    //    this.bulletObject = bulletObject;
+    //    SetBullet();
+    //}
     // Update is called once per frame
     void Update()
     {

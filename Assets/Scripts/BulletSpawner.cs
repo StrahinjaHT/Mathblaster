@@ -27,6 +27,11 @@ public class BulletSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetUpBulletSpawner();
+    }
+
+    private void SetUpBulletSpawner()
+    {
         gameSession = FindObjectOfType<GameSession>();
 
         startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);

@@ -22,18 +22,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         Move();
     }
-
     private void Move()
     {
         var Xpos = CrossPlatformInputManager.GetAxis("Horizontal");
         var Ypos = CrossPlatformInputManager.GetAxis("Vertical");
 
-        Vector3 offset = new Vector3(Xpos, Ypos,0);
+        Vector2 offset = new Vector2(Xpos, Ypos);
 
         //transform.position += offset*speed*Time.deltaTime;
-        rb.velocity = offset * speed * Time.deltaTime;
+        rb.velocity = offset * speed;
+        //rb.AddForce(offset * speed,ForceMode2D.Force);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

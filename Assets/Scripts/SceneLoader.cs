@@ -88,10 +88,14 @@ public class SceneLoader : MonoBehaviour
     {
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Options Menu");
+      
 
-        
-        
-        
+    }
+    public void LoadHelpScreen()
+    {
+        FindObjectOfType<SoundManager>().Clicked();
+        SceneManager.LoadScene("Help Screen");
+
 
     }
     public void LoadGameOver()

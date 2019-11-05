@@ -7,7 +7,7 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI waveText;
-    //[SerializeField] public List<Bullet> bullets;
+    
     [SerializeField] public List<EnemyObject> enemies;
     [SerializeField] public List<BulletObject> bulletObjects;
     [SerializeField] public float waveDuration = 10f;
