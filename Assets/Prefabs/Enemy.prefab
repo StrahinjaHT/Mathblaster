@@ -76,8 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 11400000, guid: dba5406a72045994a9c55eec084b40eb, type: 2}
-  enemy: {fileID: 0}
-  One: {fileID: 4075002082065436299, guid: d38e0adab89f2b94e8445788ee3e3381, type: 3}
   speed: 3
   number: 2
 --- !u!61 &1034230716

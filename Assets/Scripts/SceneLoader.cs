@@ -26,6 +26,7 @@ public class SceneLoader : MonoBehaviour
                 if (score > PlayerPrefs.GetInt("HighScore"))
                 {
                     PlayerPrefs.SetInt("HighScore", score);
+                    GameObject.Find("Game Over").GetComponent<TextMeshProUGUI>().text="New High Score!";
                 }
 
             }

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed=10f;
+    public float slowFactor = 0f;
     GameSession gameSession;
     Rigidbody2D rb;
     SoundManager soundManager;
@@ -22,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(slowFactor>0)
+        slowFactor -= Time.deltaTime*2;
     }
     private void FixedUpdate()
     {
@@ -36,7 +38,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 offset = new Vector2(Xpos, Ypos);
 
         //transform.position += offset*speed*Time.deltaTime;
-        rb.velocity = offset * speed;
+
+        if (speed >= slowFactor)
+        {
+            var movement = offset * (speed - slowFactor);
+            rb.velocity = movement;
+        }
+        else slowFactor = speed;
+        
         //rb.AddForce(offset * speed,ForceMode2D.Force);
     }
     

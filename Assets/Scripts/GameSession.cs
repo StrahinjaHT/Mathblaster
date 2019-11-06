@@ -44,7 +44,7 @@ public class GameSession : MonoBehaviour
         bulletSpawner = FindObjectOfType<BulletSpawner>();
         enemySpawner = FindObjectOfType<EnemySpawner>();
         soundManager = FindObjectOfType<SoundManager>();
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
         soundManager.PlayTheme();
     }
 
@@ -73,7 +73,7 @@ public class GameSession : MonoBehaviour
     public void UpdateScore()
     {
         score++;
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
     }
     public void ResetGame()
     {

@@ -58,6 +58,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void ResetScore()
     {
+        FindObjectOfType<SoundManager>().Clicked();
         PlayerPrefs.DeleteKey("HighScore");
     }
 }

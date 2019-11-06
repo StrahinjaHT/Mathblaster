@@ -34,6 +34,6 @@ public class PlayerShooting : MonoBehaviour
         bullet.GetComponent<Bullet>().SetBullet();
         
         Instantiate(bullet, gunPos, transform.rotation);
-
+        GetComponent<PlayerMovement>().slowFactor += bulletObject.number;
     }
 }

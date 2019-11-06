@@ -74,10 +74,18 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int randomPos = SelectPosition();
-        enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
+        try
+        {
+            int randomPos = SelectPosition();
+            enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
 
-        Instantiate(enemy, enemySpawnPoints[randomPos].transform.position, Quaternion.identity);
+            Instantiate(enemy, enemySpawnPoints[randomPos].transform.position, Quaternion.identity);
+        }
+        catch
+        {
+
+        }
+        
     }
 
     private int SelectPosition()
