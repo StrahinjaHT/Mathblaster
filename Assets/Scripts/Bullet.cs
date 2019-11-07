@@ -7,7 +7,7 @@ using System;
 public class Bullet : MonoBehaviour
 {
     
-    [SerializeField] ParticleSystem explosionVFX;
+    ParticleSystem explosionVFX;
     public BulletObject bulletObject;
     Rigidbody2D rb;
     TextMeshPro textMeshPro;
@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
         textMeshPro = GetComponent<TextMeshPro>();
         textMeshPro.text = number.ToString();
         textMeshPro.color = bulletObject.color;
+        explosionVFX = GetComponentInChildren<ParticleSystem>();
         explosionVFX.startColor = bulletObject.color;
 
         rb = GetComponent<Rigidbody2D>();

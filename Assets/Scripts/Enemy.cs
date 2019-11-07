@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    
     Transform target;
     public EnemyObject enemyObject;
     EnemySpawner enemySpawner;
@@ -47,11 +48,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //public Enemy(EnemyObject enemyObject)
-    //{
-    //    this.enemyObject = enemyObject;
-    //    SetEnemy();
-    //}
+    
     // Update is called once per frame
     void Update()
     {
@@ -75,12 +72,12 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            if(this.number%collision.gameObject.GetComponent<Bullet>().number==0)
+            if (this.number % collision.gameObject.GetComponent<Bullet>().number == 0)
             {
                 soundManager.EnemyIsHit();
 
                 int x = this.number / collision.gameObject.GetComponent<Bullet>().number;
-                
+
                 switch (x)
                 {
                     case 1:
@@ -88,19 +85,19 @@ public class Enemy : MonoBehaviour
 
                         Instantiate(enemySpawner.One, transform.position, Quaternion.identity);
                         break;
-               
+
                     default:
                         Destroy(gameObject);
-                        
+
                         foreach (EnemyObject e in FindObjectOfType<EnemySpawner>().Enemies)
                         {
                             if (e.number == x)
                             {
                                 enemySpawner.enemy.enemyObject = e;
                             }
-                           
+
                         }
-                        if(enemyObject==null)
+                        if (enemyObject == null)
                         {
                             foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
                             {
@@ -111,19 +108,27 @@ public class Enemy : MonoBehaviour
 
                             }
                         }
-                        
-                        
+
+
                         Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
                         break;
                 }
-                
+
             }
             else
             {
                 soundManager.EnemyIsNotsHit();
             }
-            
 
+
+        }
+        else if((collision.gameObject.tag == "Player"))
+        {
+            
+            soundManager.EnemyIsHit();
+            ParticleSystem ps = Instantiate(GetComponentInChildren<ParticleSystem>(), transform.position, Quaternion.identity);
+            ps.Play();
+            Destroy(gameObject);
         }
     }
 }

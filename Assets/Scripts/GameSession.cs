@@ -62,8 +62,15 @@ public class GameSession : MonoBehaviour
                 {
                     bulletSpawner.AddBulletPickUp();
                 }
-               
-                StartCoroutine(UpdateWave());
+                try
+                {
+                    StartCoroutine(UpdateWave());
+                }
+                catch
+                {
+
+                }
+                
                 timePassed = 0f;
             }
         }
@@ -85,6 +92,7 @@ public class GameSession : MonoBehaviour
     {
         wait = true;
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
+
         wave++;
         waveText.text = "Wave " + wave;
         yield return new WaitForSeconds(waveBreak);

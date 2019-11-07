@@ -8,16 +8,20 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed=10f;
+    [SerializeField] int maxHealth = 10;
+    int health;
     public float slowFactor = 0f;
     GameSession gameSession;
     Rigidbody2D rb;
     SoundManager soundManager;
+    
     // Start is called before the first frame update
     void Start()
     {
          gameSession = FindObjectOfType<GameSession>();
          rb = GetComponent<Rigidbody2D>();
          soundManager = FindObjectOfType<SoundManager>();
+         health = maxHealth;
     }
 
     // Update is called once per frame
@@ -25,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(slowFactor>0)
         slowFactor -= Time.deltaTime*2;
+
+
+        GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(slowFactor, speed);
     }
     private void FixedUpdate()
     {
@@ -54,9 +61,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
-            soundManager.PlayerDead();
-            FindObjectOfType<SceneLoader>().LoadGameOver();
+            health -= collision.gameObject.GetComponent<Enemy>().number;
+            GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(health,maxHealth);
+            
+            if (health<=0)
+            {
+                Destroy(gameObject);
+                soundManager.PlayerDead();
+                FindObjectOfType<SceneLoader>().LoadGameOver();
+            }
+            
             
         }
         else if (collision.gameObject.tag == "PickUp")
@@ -68,7 +82,10 @@ public class PlayerMovement : MonoBehaviour
             if (pickUp.name.Contains("One"))
                 FindObjectOfType<GameSession>().UpdateScore();
             else
-                GetComponent<PlayerShooting>().bulletObject= pickUp.bulletObject;
+            {
+                GetComponent<PlayerShooting>().changeBullet(pickUp);
+            }
+                
         }
         
     }
