@@ -63,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         {
             health -= collision.gameObject.GetComponent<Enemy>().number;
             GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(health,maxHealth);
+            Handheld.Vibrate();
+            
             
             if (health<=0)
             {
@@ -83,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
                 FindObjectOfType<GameSession>().UpdateScore();
             else
             {
-                GetComponent<PlayerShooting>().changeBullet(pickUp);
+                GetComponent<PlayerShooting>().ChangeBullet(pickUp);
             }
                 
         }

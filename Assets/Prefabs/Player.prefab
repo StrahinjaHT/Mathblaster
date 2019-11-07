@@ -231,6 +231,7 @@ MonoBehaviour:
   bulletObject: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4, type: 2}
   bullet: {fileID: 1590252558044138432, guid: b8f2aba923e2e7f408c813376580f8fd, type: 3}
   gun: {fileID: 5537317335375171249}
+  bulletText: {fileID: 0}
 --- !u!114 &1072880284
 MonoBehaviour:
   m_ObjectHideFlags: 0

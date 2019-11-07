@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
     void Start()
     {
 
-        bulletText.text = "Bullet: " + bulletObject.number;
+        UpdateBulletText();
     }
 
     // Update is called once per frame
@@ -38,10 +38,16 @@ public class PlayerShooting : MonoBehaviour
         GetComponent<PlayerMovement>().slowFactor += bulletObject.number;
 
     }
-    public void changeBullet(PickUp pickUp)
+    public void ChangeBullet(PickUp pickUp)
     {
         bulletObject = pickUp.bulletObject;
-        bulletText.text = "Bullet: " + bulletObject.number;
+        UpdateBulletText();
+    }
+
+    private void UpdateBulletText()
+    {
+        bulletText.text = bulletObject.number.ToString();
+        bulletText.color = bulletObject.color;
     }
 }
 
