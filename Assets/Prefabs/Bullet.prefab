@@ -76,9 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d8c44ecbf8214ba86bb42460228db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletObject: {fileID: 11400000, guid: 1fd71c0e0749e6c45b7d0fc037acbfe5, type: 2}
-  speed: 15
-  number: 3
+  bulletObject: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4, type: 2}
+  speed: 20
+  number: 2
 --- !u!23 &4148728831285803110
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 3
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 255
-  m_fontColor: {r: 1, g: 0.92855203, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -500,7 +500,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.92855203, b: 0, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
