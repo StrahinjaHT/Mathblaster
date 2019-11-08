@@ -17,12 +17,15 @@ public class OptionsMenu : MonoBehaviour
 
         try
         {
+            
             slider.value = PlayerPrefs.GetFloat("volume");
+            
+                
         }
         catch (System.Exception)
         {
-
             slider.value = 1f;
+
         }
         try
         {
