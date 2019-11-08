@@ -3303,22 +3303,22 @@ PrefabInstance:
     - target: {fileID: 7891637773501572811, guid: 232ff895a270ad24195671839d84ddfc,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7891637773501572811, guid: 232ff895a270ad24195671839d84ddfc,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7891637773501572811, guid: 232ff895a270ad24195671839d84ddfc,
         type: 3}
       propertyPath: m_text
-      value: 'Score: 9999'
+      value: 'Points: 9999'
       objectReference: {fileID: 0}
     - target: {fileID: 7891637773501572811, guid: 232ff895a270ad24195671839d84ddfc,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7891637773501572811, guid: 232ff895a270ad24195671839d84ddfc,
         type: 3}
@@ -3418,6 +3418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673225668237809940, guid: 4020ecfaa30528b40ae7a52294b302f4,
+        type: 3}
+      propertyPath: maxStartTimeBetweenSpawns
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4020ecfaa30528b40ae7a52294b302f4, type: 3}

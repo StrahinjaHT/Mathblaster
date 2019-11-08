@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     public int number;
     SoundManager soundManager;
     TextMeshPro textMeshPro;
+
+    [SerializeField] float timeUntilSpeedUp;
+    public float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,14 @@ public class Enemy : MonoBehaviour
     {
         if(target!=null)
         EnemyFollow();
+        if(timer>=timeUntilSpeedUp)
+        {
+            speed += 1f;
+            timer = 0f;
+            textMeshPro.fontSize++;
+            soundManager.EnemyPowerUp();
+        }
+        timer += Time.deltaTime;
     }
 
     private void EnemyFollow()

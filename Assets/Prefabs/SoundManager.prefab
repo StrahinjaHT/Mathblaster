@@ -49,6 +49,9 @@ MonoBehaviour:
   shot: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
   playerDeath: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
   click: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
+  enemyPowerUp: {fileID: 8300000, guid: 4e1ff8faed12a475eba9be0e46072269, type: 3}
+  pickedUpBullet: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+  pickedUpPoint: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
 --- !u!82 &8659414973847179195
 AudioSource:
   m_ObjectHideFlags: 0

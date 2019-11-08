@@ -10,7 +10,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip shot;
     [SerializeField] AudioClip playerDeath;
     [SerializeField] AudioClip click;
-    
+    [SerializeField] AudioClip enemyPowerUp;
+    [SerializeField] AudioClip pickedUpBullet;
+    [SerializeField] AudioClip pickedUpPoint;
+
     AudioSource audioSource;
 
     private void Awake()
@@ -72,5 +75,16 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.Stop();
     }
-
+    public void EnemyPowerUp()
+    {
+        audioSource.PlayOneShot(enemyPowerUp, 0.5f);
+    }
+    public void PickedUpBullet()
+    {
+        audioSource.PlayOneShot(pickedUpBullet, 0.5f);
+    }
+    public void PickedUpPoint()
+    {
+        audioSource.PlayOneShot(pickedUpPoint, 0.5f);
+    }
 }

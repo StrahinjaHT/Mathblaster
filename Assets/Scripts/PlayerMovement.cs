@@ -82,10 +82,15 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
             
             if (pickUp.name.Contains("One"))
+            {
                 FindObjectOfType<GameSession>().UpdateScore();
+                soundManager.PickedUpPoint();
+            }
+                
             else
             {
                 GetComponent<PlayerShooting>().ChangeBullet(pickUp);
+                soundManager.PickedUpBullet();
             }
                 
         }

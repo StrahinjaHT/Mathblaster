@@ -95,7 +95,9 @@ public class EnemySpawner : MonoBehaviour
         do
         {
             randomPos = Random.Range(0, enemySpawnPoints.Length);
-        } while ((Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<PlayerMovement>().transform.position) < 2f));
+        } while ((Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<PlayerMovement>().transform.position) < 2f) 
+            //  || (Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<Enemy>().transform.position) < 2f)
+                 );
 
         return randomPos;
     }
