@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 offset = new Vector2(Xpos, Ypos);
 
-        //transform.position += offset*speed*Time.deltaTime;
+        
 
         if (speed >= slowFactor)
         {
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else slowFactor = speed;
         
-        //rb.AddForce(offset * speed,ForceMode2D.Force);
+        
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

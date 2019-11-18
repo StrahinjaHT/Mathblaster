@@ -183,7 +183,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &5537317335847044834
 CircleCollider2D:
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletObject: {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4, type: 2}
-  bullet: {fileID: 1590252558044138432, guid: b8f2aba923e2e7f408c813376580f8fd, type: 3}
-  gun: {fileID: 5537317335375171249}
+  bullet: {fileID: 7803419379837782434, guid: b8f2aba923e2e7f408c813376580f8fd, type: 3}
+  gun: {fileID: 5537317335375171254}
   bulletText: {fileID: 0}
 --- !u!114 &1072880284
 MonoBehaviour:

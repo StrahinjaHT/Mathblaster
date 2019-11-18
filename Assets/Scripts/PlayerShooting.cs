@@ -8,15 +8,15 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] public BulletObject bulletObject;
-    [SerializeField] public GameObject bullet;
-    [SerializeField] GameObject gun;
+    [SerializeField] public Bullet bullet;
+    [SerializeField] Transform gun;
     [SerializeField] public TextMeshProUGUI bulletText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        bullet.bulletObject = bulletObject;
         UpdateBulletText();
     }
 
@@ -29,11 +29,9 @@ public class PlayerShooting : MonoBehaviour
     public void Shoot()
     {
         
-        var gunPos = gun.transform.position;
+        var gunPos = gun.position;
         FindObjectOfType<SoundManager>().ShotsFired();
-        bullet.GetComponent<Bullet>().bulletObject = bulletObject;
-        bullet.GetComponent<Bullet>().SetBullet();
-        
+
         Instantiate(bullet, gunPos, transform.rotation);
         GetComponent<PlayerMovement>().slowFactor += bulletObject.number;
 
@@ -41,6 +39,7 @@ public class PlayerShooting : MonoBehaviour
     public void ChangeBullet(PickUp pickUp)
     {
         bulletObject = pickUp.bulletObject;
+        bullet.bulletObject = bulletObject;
         UpdateBulletText();
     }
 

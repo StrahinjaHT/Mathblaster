@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         SetBullet();
+        LaunchBullet();
     }
 
     public void SetBullet()
@@ -28,17 +29,17 @@ public class Bullet : MonoBehaviour
         textMeshPro.color = bulletObject.color;
         explosionVFX = GetComponentInChildren<ParticleSystem>();
         explosionVFX.startColor = bulletObject.color;
+        
+    }
 
+    private void LaunchBullet()
+    {
         rb = GetComponent<Rigidbody2D>();
         speed = bulletObject.speed;
         rb.velocity = transform.up * speed;
     }
 
-    //public Bullet(BulletObject bulletObject)
-    //{
-    //    this.bulletObject = bulletObject;
-    //    SetBullet();
-    //}
+
     // Update is called once per frame
     void Update()
     {
