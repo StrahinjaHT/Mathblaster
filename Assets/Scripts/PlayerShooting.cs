@@ -36,9 +36,9 @@ public class PlayerShooting : MonoBehaviour
         GetComponent<PlayerMovement>().slowFactor += bulletObject.number;
 
     }
-    public void ChangeBullet(PickUp pickUp)
+    public void ChangeBullet(Ammo ammo)
     {
-        bulletObject = pickUp.bulletObject;
+        bulletObject = ammo.bulletObject;
         bullet.bulletObject = bulletObject;
         UpdateBulletText();
     }

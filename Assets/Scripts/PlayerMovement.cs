@@ -75,25 +75,7 @@ public class PlayerMovement : MonoBehaviour
             
             
         }
-        else if (collision.gameObject.tag == "PickUp")
-        {
-            collision.gameObject.GetComponent<Collider2D>().enabled = false;
-            PickUp pickUp = collision.gameObject.GetComponent<PickUp>();
-            Destroy(collision.gameObject);
-            
-            if (pickUp.name.Contains("One"))
-            {
-                FindObjectOfType<GameSession>().UpdateScore();
-                soundManager.PickedUpPoint();
-            }
-                
-            else
-            {
-                GetComponent<PlayerShooting>().ChangeBullet(pickUp);
-                soundManager.PickedUpBullet();
-            }
-                
-        }
+        
         
     }
    

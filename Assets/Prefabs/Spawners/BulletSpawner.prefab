@@ -82,7 +82,7 @@ MonoBehaviour:
   - {fileID: 4624136234102227762}
   minStartTimeBetweenSpawns: 3
   maxStartTimeBetweenSpawns: 6
-  pickUp: {fileID: 4832722405559898289, guid: 3b96b248f095d734aa6513a415b074ba, type: 3}
+  ammo: {fileID: 4832722405559898289, guid: 3b96b248f095d734aa6513a415b074ba, type: 3}
   bulletObjects: []
   startTimeBetweenSpawns: 2
 --- !u!1 &4624136233434196376

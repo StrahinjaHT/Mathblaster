@@ -11,7 +11,7 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] float maxStartTimeBetweenSpawns;
 
 
-    public PickUp pickUp;
+    public Ammo ammo;
     public List<BulletObject> bulletObjects;
 
 
@@ -75,7 +75,7 @@ public class BulletSpawner : MonoBehaviour
     private void SpawnBulletPickUp()
     {
         int randomPos = Random.Range(0, bulletSpawnPoints.Length);
-        pickUp.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
-        Instantiate(pickUp, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
+        ammo.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
+        Instantiate(ammo, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
     }
 }

@@ -1,18 +1,40 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Ammo : PickUp
 {
+    [SerializeField] public BulletObject bulletObject;
+    TextMeshPro textMeshPro;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetUpPickUp();
+    }
+  
+   
+
+    internal override void PickedUp()
+    {
+        FindObjectOfType<PlayerShooting>().ChangeBullet(this);
+        FindObjectOfType<SoundManager>().PickedUpBullet();       
     }
 
-    // Update is called once per frame
-    void Update()
+    internal override void SetUpPickUp()
     {
-        
+        try
+        {
+
+            textMeshPro = GetComponent<TextMeshPro>();
+            textMeshPro.text = bulletObject.number.ToString();
+            textMeshPro.color = bulletObject.color;
+        }
+        catch (Exception)
+        {
+
+
+        }
     }
 }

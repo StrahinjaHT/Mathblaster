@@ -59,11 +59,7 @@ public class GameSession : MonoBehaviour
             if (timePassed > waveDuration)
             {
 
-                enemySpawner.AddEnemy();
-                if(wave%2==0)
-                {
-                    bulletSpawner.AddBulletPickUp();
-                }
+                
                 try
                 {
                     StartCoroutine(UpdateWave());
@@ -72,7 +68,13 @@ public class GameSession : MonoBehaviour
                 {
 
                 }
-                
+
+
+                enemySpawner.AddEnemy();
+                if (wave % 2 == 0)
+                {
+                    bulletSpawner.AddBulletPickUp();
+                }
                 timePassed = 0f;
             }
         }
@@ -83,6 +85,7 @@ public class GameSession : MonoBehaviour
     {
         score++;
         scoreText.text = "Score: " + score.ToString();
+        soundManager.PickedUpPoint();
     }
     public void ResetGame()
     {

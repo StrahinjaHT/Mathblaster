@@ -4,34 +4,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public abstract class PickUp : MonoBehaviour
 {
     public float time = 0f;
     public float timeUp = 5f;
 
-    [SerializeField] public BulletObject bulletObject;
-    TextMeshPro textMeshPro;
+    
     // Start is called before the first frame update
     void Start()
     {
         SetUpPickUp();
     }
 
-    private void SetUpPickUp()
-    {
-        try
-        {
 
-            textMeshPro = GetComponent<TextMeshPro>();
-            textMeshPro.text = bulletObject.number.ToString();
-            textMeshPro.color = bulletObject.color;
-        }
-        catch (Exception)
-        {
 
-            
-        }
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -44,4 +31,15 @@ public class PickUp : MonoBehaviour
         if (time > timeUp) Destroy(gameObject);
         time += Time.deltaTime;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag=="Player")
+        {
+            PickedUp();
+            Destroy(gameObject);
+        }
+    }
+
+    internal abstract void SetUpPickUp();
+    internal abstract void PickedUp();
 }
