@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public List<EnemyObject> Enemies;
 
 
-    public float startTimeBetweenSpawns;
+
     public float timeBetweenSpawns;
     
     GameSession gameSession;
@@ -31,11 +31,15 @@ public class EnemySpawner : MonoBehaviour
     private void SetUpEnemySpawner()
     {
         gameSession = FindObjectOfType<GameSession>();
-
-        startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
-        timeBetweenSpawns = startTimeBetweenSpawns;
+        ResetTime();
         Enemies = new List<EnemyObject>();
         AddEnemy();
+    }
+
+    private void ResetTime()
+    {
+        timeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
+        
     }
 
     public void AddEnemy()
@@ -61,15 +65,14 @@ public class EnemySpawner : MonoBehaviour
             if (timeBetweenSpawns <= 0)
             {
                 SpawnEnemy();
-                startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
-                timeBetweenSpawns = startTimeBetweenSpawns;
+                ResetTime();
             }
             else
             {
                 timeBetweenSpawns -= Time.deltaTime;
             }
         }
-        else timeBetweenSpawns = startTimeBetweenSpawns;
+       
     }
 
     private void SpawnEnemy()

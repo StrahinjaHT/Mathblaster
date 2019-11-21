@@ -11,8 +11,7 @@ public class Bullet : MonoBehaviour
     public BulletObject bulletObject;
     Rigidbody2D rb;
     TextMeshPro textMeshPro;
-    public float speed;
-    public int number;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +21,9 @@ public class Bullet : MonoBehaviour
 
     public void SetBullet()
     {
-        number = bulletObject.number;
-
+       
         textMeshPro = GetComponent<TextMeshPro>();
-        textMeshPro.text = number.ToString();
+        textMeshPro.text =bulletObject.number.ToString();
         textMeshPro.color = bulletObject.color;
         explosionVFX = GetComponentInChildren<ParticleSystem>();
         explosionVFX.startColor = bulletObject.color;
@@ -35,8 +33,8 @@ public class Bullet : MonoBehaviour
     private void LaunchBullet()
     {
         rb = GetComponent<Rigidbody2D>();
-        speed = bulletObject.speed;
-        rb.velocity = transform.up * speed;
+        
+        rb.velocity = transform.up * bulletObject.speed;
     }
 
 

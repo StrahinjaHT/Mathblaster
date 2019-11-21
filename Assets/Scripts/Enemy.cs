@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     EnemySpawner enemySpawner;
 
     public float speed;
-    public int number;
+   // public int number;
     SoundManager soundManager;
     TextMeshPro textMeshPro;
 
@@ -29,12 +29,12 @@ public class Enemy : MonoBehaviour
     {
         
 
-        number = enemyObject.number;
+        //number = enemyObject.number;
 
         speed = enemyObject.speed;
 
         textMeshPro = GetComponent<TextMeshPro>();
-        textMeshPro.text = number.ToString();
+        textMeshPro.text = enemyObject.number.ToString();
         textMeshPro.color = enemyObject.color;
 
 
@@ -83,11 +83,11 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            if (this.number % collision.gameObject.GetComponent<Bullet>().number == 0)
+            if (this.enemyObject.number % collision.gameObject.GetComponent<Bullet>().bulletObject.number == 0)
             {
                 soundManager.EnemyIsHit();
 
-                int x = this.number / collision.gameObject.GetComponent<Bullet>().number;
+                int x = this.enemyObject.number / collision.gameObject.GetComponent<Bullet>().bulletObject.number;
 
                 switch (x)
                 {

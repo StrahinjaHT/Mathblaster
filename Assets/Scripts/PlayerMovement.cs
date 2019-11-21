@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            health -= collision.gameObject.GetComponent<Enemy>().number;
+            health -= collision.gameObject.GetComponent<Enemy>().enemyObject.number;
             GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(health,maxHealth);
             Handheld.Vibrate();
             
