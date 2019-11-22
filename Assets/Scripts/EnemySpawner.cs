@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform[] enemySpawnPoints;
     [SerializeField] float minStartTimeBetweenSpawns;
     [SerializeField] float maxStartTimeBetweenSpawns;
-    [SerializeField] public  GameObject One;
+
 
     public Enemy enemy;
     public List<EnemyObject> Enemies;

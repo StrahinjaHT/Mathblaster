@@ -10,7 +10,7 @@ public class GameSession : MonoBehaviour
     
     [SerializeField] public List<EnemyObject> enemies;
     [SerializeField] public List<BulletObject> bulletObjects;
-
+    [SerializeField] public GameObject Point;
 
     [SerializeField] public float waveDuration = 10f;
     [SerializeField] public float waveBreak = 5f;
@@ -58,8 +58,6 @@ public class GameSession : MonoBehaviour
             timePassed += Time.deltaTime;
             if (timePassed > waveDuration)
             {
-
-                
                 try
                 {
                     StartCoroutine(UpdateWave());
@@ -68,6 +66,8 @@ public class GameSession : MonoBehaviour
                 {
 
                 }
+                
+                
 
 
                 enemySpawner.AddEnemy();
@@ -99,9 +99,12 @@ public class GameSession : MonoBehaviour
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
         waveText.text = "Wave " + wave;
-        waveText.gameObject.active = true;
-        yield return new WaitForSeconds(waveBreak);
-        waveText.gameObject.active = false;
+        if(waveText.gameObject!=null)
+        {
+            waveText.gameObject.active = true;
+            yield return new WaitForSeconds(waveBreak);
+            waveText.gameObject.active = false;
+        }
         wait = false;
 
     }

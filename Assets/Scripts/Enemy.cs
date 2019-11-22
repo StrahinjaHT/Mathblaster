@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
                     case 1:
                         Destroy(gameObject);
 
-                        Instantiate(enemySpawner.One, transform.position, Quaternion.identity);
+                        Instantiate(FindObjectOfType<GameSession>().Point, transform.position, Quaternion.identity);
                         break;
 
                     default:

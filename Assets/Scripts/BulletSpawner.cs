@@ -15,7 +15,6 @@ public class BulletSpawner : MonoBehaviour
     public List<BulletObject> bulletObjects;
 
 
-    public float startTimeBetweenSpawns;
     float timeBetweenSpawns;
 
     GameSession gameSession;
@@ -34,12 +33,15 @@ public class BulletSpawner : MonoBehaviour
     {
         gameSession = FindObjectOfType<GameSession>();
 
-        startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
-        timeBetweenSpawns = startTimeBetweenSpawns;
+        ResetTime();
         bulletObjects = new List<BulletObject>();
         AddBulletPickUp();
     }
+    private void ResetTime()
+    {
+        timeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
 
+    }
     public void AddBulletPickUp()
     {
         if (gameSession.bulletObjects.Count != 0)
@@ -62,8 +64,7 @@ public class BulletSpawner : MonoBehaviour
         if (timeBetweenSpawns <= 0)
         {
             SpawnBulletPickUp();
-            startTimeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
-            timeBetweenSpawns = startTimeBetweenSpawns;
+            ResetTime();
         }
         else
         {

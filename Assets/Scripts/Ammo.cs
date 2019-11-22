@@ -13,28 +13,19 @@ public class Ammo : PickUp
     {
         SetUpPickUp();
     }
-  
-   
+
+
 
     internal override void PickedUp()
     {
         FindObjectOfType<PlayerShooting>().ChangeBullet(this);
-        FindObjectOfType<SoundManager>().PickedUpBullet();       
+        FindObjectOfType<SoundManager>().PickedUpBullet();
     }
 
-    internal override void SetUpPickUp()
+    void SetUpPickUp()
     {
-        try
-        {
-
-            textMeshPro = GetComponent<TextMeshPro>();
-            textMeshPro.text = bulletObject.number.ToString();
-            textMeshPro.color = bulletObject.color;
-        }
-        catch (Exception)
-        {
-
-
-        }
+        textMeshPro = GetComponent<TextMeshPro>();
+        textMeshPro.text = bulletObject.number.ToString();
+        textMeshPro.color = bulletObject.color;
     }
 }

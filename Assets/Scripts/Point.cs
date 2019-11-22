@@ -8,11 +8,5 @@ public class Point : PickUp
     {
         FindObjectOfType<GameSession>().UpdateScore();
     }
-
-    internal override void SetUpPickUp()
-    {
         
-    }
-
-    
 }

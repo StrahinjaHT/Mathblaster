@@ -13,11 +13,7 @@ public abstract class PickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetUpPickUp();
     }
-
-
-
 
 
     // Update is called once per frame
@@ -40,6 +36,5 @@ public abstract class PickUp : MonoBehaviour
         }
     }
 
-    internal abstract void SetUpPickUp();
     internal abstract void PickedUp();
 }
