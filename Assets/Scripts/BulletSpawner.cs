@@ -2,47 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSpawner : MonoBehaviour
+public class BulletSpawner : Spawner
 {
-
-
-    [SerializeField] Transform[] bulletSpawnPoints;
-    [SerializeField] float minStartTimeBetweenSpawns;
-    [SerializeField] float maxStartTimeBetweenSpawns;
-
 
     public Ammo ammo;
     public List<BulletObject> bulletObjects;
 
-
-    float timeBetweenSpawns;
-
-    GameSession gameSession;
-
-
-
-
-
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         SetUpBulletSpawner();
+        base.Start();
+        
     }
 
     private void SetUpBulletSpawner()
     {
-        gameSession = FindObjectOfType<GameSession>();
 
-        ResetTime();
         bulletObjects = new List<BulletObject>();
-        AddBulletPickUp();
+        
     }
-    private void ResetTime()
-    {
-        timeBetweenSpawns = Random.Range(minStartTimeBetweenSpawns, maxStartTimeBetweenSpawns);
 
-    }
-    public void AddBulletPickUp()
+
+    public override void Add()
     {
         if (gameSession.bulletObjects.Count != 0)
         {
@@ -51,32 +33,12 @@ public class BulletSpawner : MonoBehaviour
             bulletObjects.Add(newBulletObject);
 
         }
-
     }
 
-
-
-
-    // Update is called once per frame
-    void Update()
+    public override void Spawn()
     {
-
-        if (timeBetweenSpawns <= 0)
-        {
-            SpawnBulletPickUp();
-            ResetTime();
-        }
-        else
-        {
-            timeBetweenSpawns -= Time.deltaTime;
-        }
-
-    }
-
-    private void SpawnBulletPickUp()
-    {
-        int randomPos = Random.Range(0, bulletSpawnPoints.Length);
+        int randomPos = Random.Range(0, SpawnPoints.Length);
         ammo.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
-        Instantiate(ammo, bulletSpawnPoints[randomPos].transform.position, Quaternion.identity);
+        Instantiate(ammo, SpawnPoints[randomPos].transform.position, Quaternion.identity);
     }
 }

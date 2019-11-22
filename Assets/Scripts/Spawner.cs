@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class Spawner : MonoBehaviour
 {
     [SerializeField] protected Transform[] SpawnPoints;
-    [SerializeField] public float minStartTimeBetweenSpawns;
-    [SerializeField] public float maxStartTimeBetweenSpawns;
-    [SerializeField] bool spawnDuringBreak;
+    [SerializeField] protected float minStartTimeBetweenSpawns;
+    [SerializeField] protected float maxStartTimeBetweenSpawns;
+    [SerializeField] protected bool spawnDuringBreak;
     protected float timeBetweenSpawns;
     protected GameSession gameSession;
     
@@ -17,7 +17,7 @@ public abstract class Spawner : MonoBehaviour
 
     }
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         SetUpSpawner();
     }

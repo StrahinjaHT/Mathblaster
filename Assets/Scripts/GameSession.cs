@@ -67,10 +67,10 @@ public class GameSession : MonoBehaviour
 
                 }
                
-                enemySpawner.AddEnemy();
+                enemySpawner.Add();
                 if (wave % 2 == 0)
                 {
-                    bulletSpawner.AddBulletPickUp();
+                    bulletSpawner.Add();
                 }
                 timePassed = 0f;
             }
