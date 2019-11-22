@@ -28,9 +28,6 @@ public class Enemy : MonoBehaviour
     private void SetEnemy()
     {
         
-
-        //number = enemyObject.number;
-
         speed = enemyObject.speed;
 
         textMeshPro = GetComponent<TextMeshPro>();
@@ -135,11 +132,15 @@ public class Enemy : MonoBehaviour
         }
         else if((collision.gameObject.tag == "Player"))
         {
-            
-            soundManager.EnemyIsHit();
-            ParticleSystem ps = Instantiate(GetComponentInChildren<ParticleSystem>(), transform.position, Quaternion.identity);
-            ps.Play();
-            Destroy(gameObject);
+            Explode();
         }
+    }
+
+    private void Explode()
+    {
+        soundManager.EnemyIsHit();
+        ParticleSystem ps = Instantiate(GetComponentInChildren<ParticleSystem>(), transform.position, Quaternion.identity);
+        ps.Play();
+        Destroy(gameObject);
     }
 }

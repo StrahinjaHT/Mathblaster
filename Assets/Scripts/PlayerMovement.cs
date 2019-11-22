@@ -61,23 +61,30 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            health -= collision.gameObject.GetComponent<Enemy>().enemyObject.number;
-            GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(health,maxHealth);
-            Handheld.Vibrate();
-            
-            
-            if (health<=0)
-            {
-                Destroy(gameObject);
-                soundManager.PlayerDead();
-                FindObjectOfType<SceneLoader>().LoadGameOver();
-            }
-            
-            
-        }
-        
-        
-    }
-   
+            TakeDamage(collision);
 
+        }
+
+
+    }
+
+    private void TakeDamage(Collider2D collision)
+    {
+        health -= collision.gameObject.GetComponent<Enemy>().enemyObject.number;
+        GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(health, maxHealth);
+        Handheld.Vibrate();
+
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        soundManager.PlayerDead();
+        FindObjectOfType<SceneLoader>().LoadGameOver();
+    }
 }

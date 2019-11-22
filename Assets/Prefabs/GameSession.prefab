@@ -60,6 +60,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4, type: 2}
   - {fileID: 11400000, guid: 1fd71c0e0749e6c45b7d0fc037acbfe5, type: 2}
   - {fileID: 11400000, guid: bd221d98aa9fd704e9b30a6eaa5ff897, type: 2}
+  Point: {fileID: 4075002082065436299, guid: d38e0adab89f2b94e8445788ee3e3381, type: 3}
   waveDuration: 10
   waveBreak: 5
   soundManager: {fileID: 0}

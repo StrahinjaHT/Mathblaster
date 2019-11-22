@@ -66,10 +66,7 @@ public class GameSession : MonoBehaviour
                 {
 
                 }
-                
-                
-
-
+               
                 enemySpawner.AddEnemy();
                 if (wave % 2 == 0)
                 {
@@ -99,12 +96,9 @@ public class GameSession : MonoBehaviour
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
         waveText.text = "Wave " + wave;
-        if(waveText.gameObject!=null)
-        {
-            waveText.gameObject.active = true;
-            yield return new WaitForSeconds(waveBreak);
-            waveText.gameObject.active = false;
-        }
+        
+        yield return new WaitForSeconds(waveBreak);
+        waveText.text = "";
         wait = false;
 
     }
