@@ -73,67 +73,77 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ProcessHit(collision);
+        if (collision.gameObject.tag == "Bullet")
+        {
+            ProcessHit(collision);
+
+        }
+        else if ((collision.gameObject.tag == "Player"))
+        {
+            Explode();
+        }
     }
 
     private void ProcessHit(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (this.enemyObject.number % collision.gameObject.GetComponent<Bullet>().bulletObject.number == 0)
         {
-            if (this.enemyObject.number % collision.gameObject.GetComponent<Bullet>().bulletObject.number == 0)
+            soundManager.EnemyIsHit();
+
+            int x = this.enemyObject.number / collision.gameObject.GetComponent<Bullet>().bulletObject.number;
+
+            switch (x)
             {
-                soundManager.EnemyIsHit();
+                case 1:
+                    DropPoint();
+                    break;
 
-                int x = this.enemyObject.number / collision.gameObject.GetComponent<Bullet>().bulletObject.number;
+                default:
+                    DropEnemy(x);
+                    break;
+            }
 
-                switch (x)
+        }
+        else
+        {
+            soundManager.EnemyIsNotsHit();
+        }
+    }
+
+
+    private void DropEnemy(int x)
+    {
+        Destroy(gameObject);
+
+        foreach (EnemyObject e in FindObjectOfType<EnemySpawner>().Enemies)
+        {
+            if (e.number == x)
+            {
+                enemySpawner.enemy.enemyObject = e;
+            }
+
+        }
+        if (enemyObject == null)
+        {
+            foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
+            {
+                if (e.number == x)
                 {
-                    case 1:
-                        Destroy(gameObject);
-
-                        Instantiate(FindObjectOfType<GameSession>().Point, transform.position, Quaternion.identity);
-                        break;
-
-                    default:
-                        Destroy(gameObject);
-
-                        foreach (EnemyObject e in FindObjectOfType<EnemySpawner>().Enemies)
-                        {
-                            if (e.number == x)
-                            {
-                                enemySpawner.enemy.enemyObject = e;
-                            }
-
-                        }
-                        if (enemyObject == null)
-                        {
-                            foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
-                            {
-                                if (e.number == x)
-                                {
-                                    enemySpawner.enemy.enemyObject = e;
-                                }
-
-                            }
-                        }
-
-
-                        Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
-                        break;
+                    enemySpawner.enemy.enemyObject = e;
                 }
 
             }
-            else
-            {
-                soundManager.EnemyIsNotsHit();
-            }
+        }
 
 
-        }
-        else if((collision.gameObject.tag == "Player"))
-        {
-            Explode();
-        }
+        Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
+    }
+
+    private void DropPoint()
+    {
+        Destroy(gameObject);
+
+        Instantiate(FindObjectOfType<GameSession>().Point, transform.position, Quaternion.identity);
     }
 
     private void Explode()

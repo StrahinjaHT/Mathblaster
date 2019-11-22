@@ -95,8 +95,7 @@ public class GameSession : MonoBehaviour
         wait = true;
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
-        waveText.text = "Wave " + wave;
-        
+        waveText.text = "Wave " + wave;        
         yield return new WaitForSeconds(waveBreak);
         waveText.text = "";
         wait = false;
