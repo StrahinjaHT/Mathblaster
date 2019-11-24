@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &56105990 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 56105990, guid: 32182e843624e0b48963f2078dd8422b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5537317335451589698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &141658682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4624136234671603382, guid: 9d32c45f445b7e949a01e60960a6eef5,
@@ -1623,6 +1629,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!198 &757654039 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 757654039, guid: 32182e843624e0b48963f2078dd8422b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5537317335451589698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &765196335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1795,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765196335}
   m_CullTransparentMesh: 0
+--- !u!198 &879567388 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 879567388, guid: 32182e843624e0b48963f2078dd8422b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5537317335451589698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &892959392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4624136233899982802, guid: 9d32c45f445b7e949a01e60960a6eef5,
@@ -3703,6 +3721,69 @@ PrefabInstance:
       propertyPath: bulletText
       value: 
       objectReference: {fileID: 332898103}
+    - target: {fileID: 5537317335847044831, guid: 32182e843624e0b48963f2078dd8422b,
+        type: 3}
+      propertyPath: jetBack
+      value: 
+      objectReference: {fileID: 879567388}
+    - target: {fileID: 5537317335847044831, guid: 32182e843624e0b48963f2078dd8422b,
+        type: 3}
+      propertyPath: jetRight
+      value: 
+      objectReference: {fileID: 757654039}
+    - target: {fileID: 5537317335847044831, guid: 32182e843624e0b48963f2078dd8422b,
+        type: 3}
+      propertyPath: jetLeft
+      value: 
+      objectReference: {fileID: 56105990}
+    - target: {fileID: 879567385, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879567388, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 879567388, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 879567388, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 757654036, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 757654039, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 757654039, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 757654039, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 56105987, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 56105990, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56105990, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 56105990, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
 --- !u!1001 &7891637772664068395

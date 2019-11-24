@@ -14,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
     GameSession gameSession;
     Rigidbody2D rb;
     SoundManager soundManager;
-    
+    [SerializeField] ParticleSystem jetBack;
+    [SerializeField] ParticleSystem jetRight;
+    [SerializeField] ParticleSystem jetLeft;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +46,7 @@ public class PlayerMovement : MonoBehaviour
         var Ypos = CrossPlatformInputManager.GetAxis("Vertical");
 
         Vector2 offset = new Vector2(Xpos, Ypos);
-
-        
+        ActivateJetParticles(offset);
 
         if (speed >= slowFactor)
         {
@@ -52,10 +54,26 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = movement;
         }
         else slowFactor = speed;
-        
-        
+
+
     }
-    
+
+    private void ActivateJetParticles(Vector2 offset)
+    {
+        if (offset != Vector2.zero)
+        {
+            jetBack.Play();
+            jetRight.Play();
+            jetLeft.Play();
+        }
+        else
+        {
+            jetBack.Stop();
+            jetRight.Stop();
+            jetLeft.Stop();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

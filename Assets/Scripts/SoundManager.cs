@@ -82,4 +82,5 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(pickedUpPoint, 0.5f);
     }
+ 
 }
