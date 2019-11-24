@@ -2202,5 +2202,10 @@ PrefabInstance:
       propertyPath: highScoreText
       value: 
       objectReference: {fileID: 712266627}
+    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
+        type: 3}
+      propertyPath: startMenuHighScoreText
+      value: 
+      objectReference: {fileID: 712266627}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa923c7b85d7b649a00209a02a2fc9b, type: 3}

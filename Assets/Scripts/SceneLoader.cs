@@ -19,6 +19,8 @@ public class SceneLoader : MonoBehaviour
 
         try
         {
+            //TextMeshProUGUI gameOverScoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
+            //TextMeshProUGUI startMenuHighScoreText = GameObject.Find("Highscore").GetComponent<TextMeshProUGUI>();
             if (gameOverScoreText != null)
             {
                 int score = FindObjectOfType<GameSession>().score;

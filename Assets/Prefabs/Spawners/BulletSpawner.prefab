@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c39815a27073394a8382eaa32dc2e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPoints:
+  SpawnPoints:
   - {fileID: 4624136234591427876}
   - {fileID: 4624136234217669090}
   - {fileID: 4624136234690545129}
@@ -80,11 +80,13 @@ MonoBehaviour:
   - {fileID: 4624136234616681574}
   - {fileID: 4624136234629658353}
   - {fileID: 4624136234102227762}
-  minStartTimeBetweenSpawns: 3
-  maxStartTimeBetweenSpawns: 6
+  minStartTimeBetweenSpawns: 1
+  maxStartTimeBetweenSpawns: 4
+  spawnDuringBreak: 1
+  numberOfTypesAtStart: 2
   ammo: {fileID: 4832722405559898289, guid: 3b96b248f095d734aa6513a415b074ba, type: 3}
   bulletObjects: []
-  startTimeBetweenSpawns: 2
+  numberOfAddedBulletsPerWave: 1
 --- !u!1 &4624136233434196376
 GameObject:
   m_ObjectHideFlags: 0

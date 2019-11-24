@@ -9,6 +9,7 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] protected float maxStartTimeBetweenSpawns;
     [SerializeField] protected bool spawnDuringBreak;
     [SerializeField] protected int numberOfTypesAtStart;
+
     protected float timeBetweenSpawns;
     protected GameSession gameSession;
     
@@ -55,13 +56,22 @@ public abstract class Spawner : MonoBehaviour
     internal int SelectPosition()
     {
         int randomPos;
-
+        bool tooClose = false;
         do
         {
+            tooClose = false;
             randomPos = Random.Range(0, SpawnPoints.Length);
-        } while ((Vector2.Distance(SpawnPoints[randomPos].position, FindObjectOfType<PlayerMovement>().transform.position) < 2f)
-                 //  || (Vector2.Distance(enemySpawnPoints[randomPos].position, FindObjectOfType<Enemy>().transform.position) < 2f)
-                 );
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(SpawnPoints[randomPos].position, 2f);
+            foreach (Collider2D c in colliders)
+            {
+                if (c.tag == "Enemy" || c.tag == "PickUp" || c.tag == "Player")
+                {
+                    tooClose = true;
+                }
+            }
+        } while (tooClose);
+                 
+                 
 
         return randomPos;
     }

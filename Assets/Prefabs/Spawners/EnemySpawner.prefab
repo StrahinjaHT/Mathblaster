@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ad4ef37fe180145ad81dff70f1bac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnPoints:
+  SpawnPoints:
   - {fileID: 8673225668681023197}
   - {fileID: 8673225667083113676}
   - {fileID: 8673225667270916702}
@@ -272,10 +272,11 @@ MonoBehaviour:
   - {fileID: 1598575611}
   minStartTimeBetweenSpawns: 1
   maxStartTimeBetweenSpawns: 3
-  One: {fileID: 4075002082065436299, guid: d38e0adab89f2b94e8445788ee3e3381, type: 3}
+  spawnDuringBreak: 0
+  numberOfTypesAtStart: 3
   enemy: {fileID: 662861468615883712, guid: fa2cc6f21717b3648b78c561c5b774ab, type: 3}
   Enemies: []
-  timeBetweenSpawns: 0
+  numberOfAddedEnemiesPerWave: 1
 --- !u!1 &8673225668681023196
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,17 +33,16 @@ public class EnemySpawner : Spawner
                 Enemies.Add(newEnemy);
 
             }
-            
-        
-        
-        
+   
     }
 
     public override void Spawn()
     {
         try
         {
+
             int randomPos = SelectPosition();
+
             enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
 
             Instantiate(enemy, SpawnPoints[randomPos].transform.position, Quaternion.identity);

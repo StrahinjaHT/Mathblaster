@@ -42,7 +42,8 @@ public class BulletSpawner : Spawner
 
     public override void Spawn()
     {
-        int randomPos = Random.Range(0, SpawnPoints.Length);
+        int randomPos = SelectPosition();
+
         ammo.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
         Instantiate(ammo, SpawnPoints[randomPos].transform.position, Quaternion.identity);
     }

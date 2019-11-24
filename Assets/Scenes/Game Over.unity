@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57d354e50184a341880cd3be31f7306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScoreText: {fileID: 0}
+  gameOverScoreText: {fileID: 1438794599}
   startMenuHighScoreText: {fileID: 0}
 --- !u!4 &1861490026
 Transform:

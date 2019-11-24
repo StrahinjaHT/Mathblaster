@@ -6,9 +6,11 @@ public class Point : PickUp
 {
     internal override void PickedUp()
     {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
         FindObjectOfType<GameSession>().UpdateScore();
-        FindObjectOfType<PlayerMovement>().health++;
-        GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(FindObjectOfType<PlayerMovement>().health, FindObjectOfType<PlayerMovement>().maxHealth);
+        if(player.health<player.maxHealth)
+            player.health++;
+        GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(player.health, player.maxHealth);
     }
         
 }
