@@ -32,6 +32,7 @@ public class PlayerShooting : MonoBehaviour
         FindObjectOfType<SoundManager>().ShotsFired();
 
         Instantiate(bullet, gunPos, transform.rotation);
+        GetComponentInChildren<ParticleSystem>().Play();
         GetComponent<PlayerMovement>().slowFactor += bulletObject.number;
 
     }

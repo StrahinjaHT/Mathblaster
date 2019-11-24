@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   number: 4
-  color: {r: 0, g: 0.48129225, b: 1, a: 1}
+  color: {r: 0, g: 0.41639185, b: 1, a: 1}
