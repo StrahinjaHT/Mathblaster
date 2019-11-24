@@ -8,6 +8,7 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] protected float minStartTimeBetweenSpawns;
     [SerializeField] protected float maxStartTimeBetweenSpawns;
     [SerializeField] protected bool spawnDuringBreak;
+    [SerializeField] protected int numberOfTypesAtStart;
     protected float timeBetweenSpawns;
     protected GameSession gameSession;
     
@@ -27,7 +28,11 @@ public abstract class Spawner : MonoBehaviour
         
         gameSession = FindObjectOfType<GameSession>();
         ResetTime();
-        Add();
+        for (int i = 0; i < numberOfTypesAtStart; i++)
+        {
+            Add();
+        }
+        
     }
 
     // Update is called once per frame

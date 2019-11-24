@@ -56,10 +56,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c10467a2b42c9e144ab973c427b2fc7e, type: 2}
   - {fileID: 11400000, guid: 230e1138732b48941986d37407ab4e1b, type: 2}
   - {fileID: 11400000, guid: 2a5afd414d98c71448560e0c89517d97, type: 2}
+  - {fileID: 11400000, guid: 2b83b6d3b6811774ba9f765ccf1cfda3, type: 2}
+  - {fileID: 11400000, guid: 3fdbbe865d4d659469453a606962a84f, type: 2}
+  - {fileID: 11400000, guid: 747ab070b659777499f3f165bf523ae5, type: 2}
+  - {fileID: 11400000, guid: 63b18075555e98748a8ab1f971cdcfec, type: 2}
+  - {fileID: 11400000, guid: 290d56f258f150a4a8d42bb8c73f6b01, type: 2}
+  - {fileID: 11400000, guid: fb0f7871853234f4aa6f9b4ccf1fb341, type: 2}
+  - {fileID: 11400000, guid: 36c28478ffbee334aa917c5266d82f2c, type: 2}
+  - {fileID: 11400000, guid: 877129e505a43154ea59333a596d8727, type: 2}
+  - {fileID: 11400000, guid: 360127cfb3de8094c9b9db3cd29a68fc, type: 2}
   bulletObjects:
   - {fileID: 11400000, guid: 3b3dd0b6127325c43b40a84c14b103d4, type: 2}
   - {fileID: 11400000, guid: 1fd71c0e0749e6c45b7d0fc037acbfe5, type: 2}
   - {fileID: 11400000, guid: bd221d98aa9fd704e9b30a6eaa5ff897, type: 2}
+  - {fileID: 11400000, guid: 9a55ddd2ce7713a46b2d6e34c77d4b58, type: 2}
   Point: {fileID: 4075002082065436299, guid: d38e0adab89f2b94e8445788ee3e3381, type: 3}
   waveDuration: 10
   waveBreak: 5

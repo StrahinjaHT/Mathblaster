@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed=10f;
-    [SerializeField] int maxHealth = 10;
-    int health;
+    [SerializeField] public int maxHealth = 10;
+    public int health;
     public float slowFactor = 0f;
     GameSession gameSession;
     Rigidbody2D rb;

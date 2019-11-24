@@ -7,6 +7,7 @@ public class EnemySpawner : Spawner
 
     public Enemy enemy;
     public List<EnemyObject> Enemies;
+    [SerializeField] public int numberOfAddedEnemiesPerWave;
 
     // Start is called before the first frame update
     public override void Start()
@@ -24,13 +25,18 @@ public class EnemySpawner : Spawner
 
     public override void Add()
     {
-        if (gameSession.enemies.Count != 0)
-        {
-            EnemyObject newEnemy = gameSession.enemies[0];
-            gameSession.enemies.Remove(newEnemy);
-            Enemies.Add(newEnemy);
+        
+            if (gameSession.enemies.Count != 0)
+            {
+                EnemyObject newEnemy = gameSession.enemies[0];
+                gameSession.enemies.Remove(newEnemy);
+                Enemies.Add(newEnemy);
 
-        }
+            }
+            
+        
+        
+        
     }
 
     public override void Spawn()

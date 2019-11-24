@@ -7,7 +7,7 @@ public class BulletSpawner : Spawner
 
     public Ammo ammo;
     public List<BulletObject> bulletObjects;
-
+    [SerializeField] public  int numberOfAddedBulletsPerWave;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -26,13 +26,18 @@ public class BulletSpawner : Spawner
 
     public override void Add()
     {
-        if (gameSession.bulletObjects.Count != 0)
+        for (int i = 0; i < numberOfAddedBulletsPerWave; i++)
         {
-            BulletObject newBulletObject = gameSession.bulletObjects[0];
-            gameSession.bulletObjects.Remove(newBulletObject);
-            bulletObjects.Add(newBulletObject);
+            if (gameSession.bulletObjects.Count != 0)
+            {
+                BulletObject newBulletObject = gameSession.bulletObjects[0];
+                gameSession.bulletObjects.Remove(newBulletObject);
+                bulletObjects.Add(newBulletObject);
 
+            }
+            else break;
         }
+        
     }
 
     public override void Spawn()

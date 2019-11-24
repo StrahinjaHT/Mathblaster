@@ -3565,6 +3565,16 @@ PrefabInstance:
       propertyPath: spawnDuringBreak
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4624136233302594859, guid: 9d32c45f445b7e949a01e60960a6eef5,
+        type: 3}
+      propertyPath: numberOfAddedBulletsPerWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624136233302594859, guid: 9d32c45f445b7e949a01e60960a6eef5,
+        type: 3}
+      propertyPath: numberOfTypesAtStart
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d32c45f445b7e949a01e60960a6eef5, type: 3}
 --- !u!1001 &4788567270225486675
@@ -3708,6 +3718,11 @@ PrefabInstance:
       propertyPath: bulletText
       value: 
       objectReference: {fileID: 332898103}
+    - target: {fileID: 5537317335847044831, guid: 32182e843624e0b48963f2078dd8422b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 879567388, guid: 32182e843624e0b48963f2078dd8422b, type: 3}
       propertyPath: prewarm
       value: 0
@@ -4048,5 +4063,15 @@ PrefabInstance:
       propertyPath: SpawnPoints.Array.data[7]
       value: 
       objectReference: {fileID: 1866058750}
+    - target: {fileID: 8673225668237809940, guid: 4020ecfaa30528b40ae7a52294b302f4,
+        type: 3}
+      propertyPath: numberOfAddedEnemiesPerWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673225668237809940, guid: 4020ecfaa30528b40ae7a52294b302f4,
+        type: 3}
+      propertyPath: numberOfTypesAtStart
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4020ecfaa30528b40ae7a52294b302f4, type: 3}
