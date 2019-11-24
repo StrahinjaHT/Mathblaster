@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI highScoreText;
+    [SerializeField] TextMeshProUGUI gameOverScoreText;
+    [SerializeField] TextMeshProUGUI startMenuHighScoreText;
     
 
     
@@ -19,10 +19,10 @@ public class SceneLoader : MonoBehaviour
 
         try
         {
-            if (scoreText != null)
+            if (gameOverScoreText != null)
             {
                 int score = FindObjectOfType<GameSession>().score;
-                scoreText.text = "Score: " + score.ToString();
+                gameOverScoreText.text = "Score: " + score.ToString();
                 if (score > PlayerPrefs.GetInt("HighScore"))
                 {
                     PlayerPrefs.SetInt("HighScore", score);
@@ -30,9 +30,9 @@ public class SceneLoader : MonoBehaviour
                 }
 
             }
-            if (highScoreText != null)
+            if (startMenuHighScoreText != null)
             {
-                highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+                startMenuHighScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
             }
         }
         catch (Exception)
