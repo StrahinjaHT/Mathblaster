@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
 
-    public AudioMixer audioMixer;
+    //public AudioMixer audioMixer;
     [SerializeField] Dropdown dropdown;
     [SerializeField] Slider slider;
 
@@ -49,7 +49,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        FindObjectOfType<SceneLoader>().audioMixer.SetFloat("volume", volume);
         PlayerPrefs.SetFloat("volume", volume);
     }
 

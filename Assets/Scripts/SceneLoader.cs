@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI gameOverScoreText;
     [SerializeField] TextMeshProUGUI startMenuHighScoreText;
-    
+    public AudioMixer audioMixer;
 
     
 
     // Start is called before the first frame update
     void Start()
     {
+        float volume = PlayerPrefs.GetFloat("volume",0);
+        audioMixer.SetFloat("volume", volume);
 
         try
         {

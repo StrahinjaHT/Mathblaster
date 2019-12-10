@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57d354e50184a341880cd3be31f7306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScoreText: {fileID: 0}
+  startMenuHighScoreText: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 49594ea0f54668547ba7818992ef2e09, type: 2}

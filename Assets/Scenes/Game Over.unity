@@ -1499,6 +1499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScoreText: {fileID: 1438794599}
   startMenuHighScoreText: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 49594ea0f54668547ba7818992ef2e09, type: 2}
 --- !u!4 &1861490026
 Transform:
   m_ObjectHideFlags: 0
