@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4beb5fb2ba69476468892cd65ddf7c2a, type: 3}
   m_Name: Fourteen
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   number: 14
   color: {r: 0.9245283, g: 0.48599055, b: 0, a: 1}

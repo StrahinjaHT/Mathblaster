@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4beb5fb2ba69476468892cd65ddf7c2a, type: 3}
   m_Name: Eight
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.5
   number: 8
   color: {r: 0.12752408, g: 0, b: 0.5943396, a: 1}
