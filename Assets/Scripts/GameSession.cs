@@ -20,6 +20,7 @@ public class GameSession : MonoBehaviour
     BulletSpawner bulletSpawner;
     EnemySpawner enemySpawner;
     public SoundManager soundManager;
+    ShopScript shop;
 
     public int score = 0;
     public int wave = 1;
@@ -46,6 +47,7 @@ public class GameSession : MonoBehaviour
         bulletSpawner = FindObjectOfType<BulletSpawner>();
         enemySpawner = FindObjectOfType<EnemySpawner>();
         soundManager = FindObjectOfType<SoundManager>();
+        shop = FindObjectOfType<ShopScript>();
         scoreText.text = "Score: " + score.ToString();
         soundManager.PlayTheme();
     }
@@ -82,11 +84,17 @@ public class GameSession : MonoBehaviour
         
     }
 
-    public void UpdateScore()
+    public void UpdateScoreByOne()
     {
         score++;
         scoreText.text = "Score: " + score.ToString();
         soundManager.PickedUpPoint();
+    }
+    public void UpdateScore(int x)
+    {
+        score+=x;
+        scoreText.text = "Score: " + score.ToString();
+        //soundManager.PickedUpPoint();
     }
     public bool DecreaseScoreAfterPurchase(int price)
     {
@@ -111,10 +119,10 @@ public class GameSession : MonoBehaviour
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
         waveText.text = "Wave " + wave;
-        FindObjectOfType<ShopScript>().EnableShopButton();
+        shop.EnableShopButton();
         yield return new WaitForSeconds(waveBreak);
         waveText.text = "";
-        FindObjectOfType<ShopScript>().DisableShopButton();
+        shop.DisableShopButton();
         wait = false;
 
     }

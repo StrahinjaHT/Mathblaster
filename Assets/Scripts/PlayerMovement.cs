@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed=10f;
     [SerializeField] public int maxHealth = 10;
     public int health;
-    public float slowFactor = 0f;
+    public float overheatFactor = 0f;
+    //public float maxOverheat = 20f;
     GameSession gameSession;
     Rigidbody2D rb;
     SoundManager soundManager;
@@ -33,11 +34,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(slowFactor>0)
-        slowFactor -= Time.deltaTime*2;
+        if (overheatFactor > 0)
+            overheatFactor -= Time.deltaTime * 2;
+        else GetComponent<PlayerShooting>().unlockGun();
 
-
-        GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(slowFactor, speed);
+        GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(overheatFactor, speed);
     }
     private void FixedUpdate()
     {
@@ -51,12 +52,17 @@ public class PlayerMovement : MonoBehaviour
         Vector2 offset = new Vector2(Xpos, Ypos);
         ActivateJetParticles(offset);
 
-        if (speed >= slowFactor)
+        if (speed >= overheatFactor)
         {
-            var movement = offset * (speed - slowFactor);
+            var movement = offset * (speed - overheatFactor);
             rb.velocity = movement;
         }
-        else slowFactor = speed;
+        else
+        {
+            overheatFactor = speed;
+            GetComponent<PlayerShooting>().lockGun();
+        }
+
 
 
     }

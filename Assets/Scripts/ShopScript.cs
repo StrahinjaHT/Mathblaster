@@ -63,7 +63,7 @@ public class ShopScript : MonoBehaviour
     }
     public void PurchaseHealthRefill()
     {
-        if(gameSession.DecreaseScoreAfterPurchase(5))
+        if(gameSession.DecreaseScoreAfterPurchase(10))
         {
             playerMovement.health = playerMovement.maxHealth;
             GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerMovement.health, playerMovement.maxHealth);
@@ -74,7 +74,7 @@ public class ShopScript : MonoBehaviour
     }
     public void PurchaseMaxHealthIncrease()
     {
-        if (gameSession.DecreaseScoreAfterPurchase(5))
+        if (gameSession.DecreaseScoreAfterPurchase(20))
         {
             playerMovement.maxHealth*=2;
             playerMovement.health *= 2;

@@ -86,44 +86,56 @@ public class Enemy : MonoBehaviour
 
     private void ProcessHit(Collider2D collision)
     {
-        if (this.enemyObject.number % collision.gameObject.GetComponent<Bullet>().bulletObject.number == 0)
-        {
+        //if (this.enemyObject.number % collision.gameObject.GetComponent<Bullet>().bulletObject.number == 0)
+        //{
             soundManager.EnemyIsHit();
 
-            int x = this.enemyObject.number / collision.gameObject.GetComponent<Bullet>().bulletObject.number;
+            int x = this.enemyObject.number - collision.gameObject.GetComponent<Bullet>().bulletObject.number;
+            //int x = this.enemyObject.number / collision.gameObject.GetComponent<Bullet>().bulletObject.number;
 
-            switch (x)
-            {
-                case 1:
-                    DropPoint();
-                    break;
-
-                default:
-                    DropEnemy(x);
-                    break;
-            }
-
-        }
-        else
+           if(x>0)
         {
-            soundManager.EnemyIsNotsHit();
+            DropEnemy(x);
         }
+           else
+        {
+            DropPointText(-x);
+            FindObjectOfType<GameSession>().UpdateScore(-x);
+        }
+        //switch (x)
+        //    {
+        //        case 1:
+        //            DropPoint();
+        //            break;
+
+        //        default:
+        //            DropEnemy(x);
+        //            break;
+        //    }
+
+        //}
+        //else
+        //{
+        //    soundManager.EnemyIsNotsHit();
+        //}
     }
 
 
     private void DropEnemy(int x)
     {
         Destroy(gameObject);
+        bool found = false;
 
         foreach (EnemyObject e in FindObjectOfType<EnemySpawner>().Enemies)
         {
             if (e.number == x)
             {
                 enemySpawner.enemy.enemyObject = e;
+                found = true;
             }
 
         }
-        if (enemyObject == null)
+        if (found == false)
         {
             foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
             {
@@ -139,11 +151,17 @@ public class Enemy : MonoBehaviour
         Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
     }
 
-    private void DropPoint()
+    private void DropPointText(int x)
     {
         Destroy(gameObject);
+        if(x>0)
+        {
+            GameObject pointText = FindObjectOfType<GameSession>().Point;
+            pointText.GetComponent<TextMeshPro>().text = "+" + x.ToString();
+            Instantiate(pointText, transform.position, Quaternion.identity);
+        }
+        
 
-        Instantiate(FindObjectOfType<GameSession>().Point, transform.position, Quaternion.identity);
     }
 
     private void Explode()

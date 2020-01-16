@@ -10,6 +10,9 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] public Bullet bullet;
     [SerializeField] Transform gun;
     [SerializeField] public TextMeshProUGUI bulletText;
+    [SerializeField] public TextMeshProUGUI gunOverheatedText;
+    public int overloadRate = 1;
+    public bool gunLock = false;
 
 
     // Start is called before the first frame update
@@ -27,13 +30,16 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot()
     {
-        
-        var gunPos = gun.position;
-        FindObjectOfType<SoundManager>().ShotsFired();
+        if(gunLock==false)
+        {
+            var gunPos = gun.position;
+            FindObjectOfType<SoundManager>().ShotsFired();
 
-        Instantiate(bullet, gunPos, transform.rotation);
-        GetComponentInChildren<ParticleSystem>().Play();
-        GetComponent<PlayerMovement>().slowFactor += 2;
+            Instantiate(bullet, gunPos, transform.rotation);
+            GetComponentInChildren<ParticleSystem>().Play();
+            GetComponent<PlayerMovement>().overheatFactor += bulletObject.number / overloadRate;
+        }
+        
 
     }
     public void ChangeBullet(Ammo ammo)
@@ -47,6 +53,16 @@ public class PlayerShooting : MonoBehaviour
     {
         bulletText.text = bulletObject.number.ToString();
         bulletText.color = bulletObject.color;
+    }
+    public void lockGun()
+    {
+        gunLock = true;
+        gunOverheatedText.enabled = true;
+    }
+    public void unlockGun()
+    {
+        gunLock = false;
+        gunOverheatedText.enabled = false;
     }
 }
 
