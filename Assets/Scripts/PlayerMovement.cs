@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     GameSession gameSession;
     Rigidbody2D rb;
     SoundManager soundManager;
+    [SerializeField] public TextMeshProUGUI healthText;
     [SerializeField] ParticleSystem jetBack;
     [SerializeField] ParticleSystem jetRight;
     [SerializeField] ParticleSystem jetLeft;
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
          rb = GetComponent<Rigidbody2D>();
          soundManager = FindObjectOfType<SoundManager>();
          health = maxHealth;
+         healthText.text = health.ToString();
     }
 
     // Update is called once per frame
@@ -90,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
     {
         health -= collision.gameObject.GetComponent<Enemy>().enemyObject.number;
         GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(health, maxHealth);
+        healthText.text = health.ToString();
         Handheld.Vibrate();
 
 

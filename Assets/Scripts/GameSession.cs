@@ -88,6 +88,17 @@ public class GameSession : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         soundManager.PickedUpPoint();
     }
+    public bool DecreaseScoreAfterPurchase(int price)
+    {
+        if (price <= score)
+        {
+            score -= price;
+            scoreText.text = "Score: " + score.ToString();
+            soundManager.PickedUpPoint();
+            return true;
+        }
+        else return false;
+    }
     public void ResetGame()
     {
         Destroy(soundManager.gameObject);
@@ -99,9 +110,11 @@ public class GameSession : MonoBehaviour
         wait = true;
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
-        waveText.text = "Wave " + wave;        
+        waveText.text = "Wave " + wave;
+        FindObjectOfType<ShopScript>().EnableShopButton();
         yield return new WaitForSeconds(waveBreak);
         waveText.text = "";
+        FindObjectOfType<ShopScript>().DisableShopButton();
         wait = false;
 
     }
