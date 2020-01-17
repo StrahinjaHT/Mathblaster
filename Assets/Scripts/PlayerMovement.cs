@@ -8,10 +8,10 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed=10f;
+    [SerializeField] public float speed=15f;
     [SerializeField] public int maxHealth = 10;
     public int health;
-    public float overheatFactor = 0f;
+    
     //public float maxOverheat = 20f;
     GameSession gameSession;
     Rigidbody2D rb;
@@ -34,11 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (overheatFactor > 0)
-            overheatFactor -= Time.deltaTime * 2;
-        else GetComponent<PlayerShooting>().unlockGun();
-
-        GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(overheatFactor, speed);
+        
     }
     private void FixedUpdate()
     {
@@ -52,18 +48,22 @@ public class PlayerMovement : MonoBehaviour
         Vector2 offset = new Vector2(Xpos, Ypos);
         ActivateJetParticles(offset);
 
-        if (speed >= overheatFactor)
-        {
-            var movement = offset * (speed - overheatFactor);
-            rb.velocity = movement;
-        }
-        else
-        {
-            overheatFactor = speed;
-            GetComponent<PlayerShooting>().lockGun();
-        }
-
-
+        //if (speed >= GetComponent<PlayerShooting>().overheatFactor)
+        //{
+        //    var movement = offset * (speed - GetComponent<PlayerShooting>().slowFactor*speed);
+        //    rb.velocity = movement;
+        //}
+        //else
+        //{
+        //    GetComponent<PlayerShooting>().overheatFactor = speed;
+        //    GetComponent<PlayerShooting>().lockGun();
+        //}
+        
+        
+        var movement = offset * (speed - GetComponent<PlayerShooting>().slowFactor * speed);
+        rb.velocity = movement;
+        
+        
 
     }
 
