@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
 
     public void EnemyIsHit()
     {
-        audioSource.PlayOneShot(hitSFX,1f);
+        audioSource.PlayOneShot(hitSFX,2f);
     }
     public void EnemyIsNotsHit()
     {
@@ -80,7 +80,7 @@ public class SoundManager : MonoBehaviour
     }
     public void PickedUpPoint()
     {
-        audioSource.PlayOneShot(pickedUpPoint, 0.5f);
+        audioSource.PlayOneShot(pickedUpPoint, 1f);
     }
  
 }

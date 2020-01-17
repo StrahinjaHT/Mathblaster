@@ -11,13 +11,15 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] public Bullet bullet;
     [SerializeField] Transform gun;
     [SerializeField] public TextMeshProUGUI bulletText;
-    [SerializeField] public TextMeshProUGUI gunOverheatedText;
+    [SerializeField] TextMeshProUGUI gunOverheatedText;
     [SerializeField] Image overheatBar;
-    public bool gunLock = false;
+
     public float overheatFactor = 0f;
-    public float maxOverheat = 20f;
+    public float maxOverheat = 15f;
+    public float overheatDecreaseRate = 2;
     public float slowFactor;
     Color standardOverheatBarColor;
+    bool gunLock = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +52,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 overheatBar.color = standardOverheatBarColor;
             }
-            overheatFactor -= Time.deltaTime * 2;
+            overheatFactor -= Time.deltaTime * overheatDecreaseRate;
         }
 
         else

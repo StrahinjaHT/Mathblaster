@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +10,15 @@ public class ShopScript : MonoBehaviour
     public static bool shopWindowOpen = false;
     public GameObject shopMenuUI;
     PlayerMovement playerMovement;
+    PlayerShooting playerShooting;
     GameSession gameSession;
+    
     // Start is called before the first frame update
     void Start()
     {
         DisableShopButton();
         playerMovement = FindObjectOfType<PlayerMovement>();
+        playerShooting = FindObjectOfType<PlayerShooting>();
         gameSession = FindObjectOfType<GameSession>();
     }
 
@@ -63,6 +67,7 @@ public class ShopScript : MonoBehaviour
     }
     public void PurchaseHealthRefill()
     {
+        
         if(gameSession.DecreaseScoreAfterPurchase(10))
         {
             playerMovement.health = playerMovement.maxHealth;
@@ -80,6 +85,18 @@ public class ShopScript : MonoBehaviour
             playerMovement.health *= 2;
             GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerMovement.health, playerMovement.maxHealth);
             playerMovement.healthText.text = playerMovement.health.ToString();
+        }
+
+
+    }
+    public void PurchaseEngineUpgrade()
+    {
+        if (gameSession.DecreaseScoreAfterPurchase(20))
+        {
+            playerShooting.maxOverheat*= 2;
+            playerShooting.overheatDecreaseRate *= 2;
+            GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerShooting.overheatFactor, playerShooting.maxOverheat);
+            
         }
 
 
