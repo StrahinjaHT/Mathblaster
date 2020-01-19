@@ -23,7 +23,7 @@ public class PlayerRotation : MonoBehaviour
 
     private void RotateAndShoot()
     {
-        if (!PauseGame.gameIsPaused)
+        if (!PauseGame.gameIsPaused && !ShopScript.shopWindowOpen)
         {
             if (Input.touchCount > 0)
             {

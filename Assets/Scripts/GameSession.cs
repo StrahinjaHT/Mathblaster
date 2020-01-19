@@ -109,7 +109,11 @@ public class GameSession : MonoBehaviour
             soundManager.PickedUpPoint();
             return true;
         }
-        else return false;
+        else
+        {
+            soundManager.NotEnoughPoints();
+            return false;
+        }
     }
     public void ResetGame()
     {

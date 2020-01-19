@@ -52,6 +52,8 @@ MonoBehaviour:
   enemyPowerUp: {fileID: 8300000, guid: 4e1ff8faed12a475eba9be0e46072269, type: 3}
   pickedUpBullet: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   pickedUpPoint: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+  freezenovaBombUsed: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
+  notEnoughPoints: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
 --- !u!82 &8659414973847179195
 AudioSource:
   m_ObjectHideFlags: 0

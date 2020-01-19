@@ -8,10 +8,13 @@ public class ShopScript : MonoBehaviour
 {
     [SerializeField] Button shopButton;
     public static bool shopWindowOpen = false;
+    public static bool descriptionWindowOpen = false;
     public GameObject shopMenuUI;
+    public GameObject itemDescriptionWindow;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
     GameSession gameSession;
+   
 
     [SerializeField] int healthRefillPrice = 10;
     [SerializeField] int maxHealthIncreasePrice = 20;
@@ -46,13 +49,29 @@ public class ShopScript : MonoBehaviour
 
     public void DisableShopButton()
     {
-        shopButton.interactable = false;
-        shopButton.spriteState.Equals(shopButton.spriteState.disabledSprite);
+        try
+        {
+            shopButton.interactable = false;
+            shopButton.spriteState.Equals(shopButton.spriteState.disabledSprite);
+        }
+        catch (System.Exception)
+        {
+
+            
+        }
     }
     public void EnableShopButton()
     {
-        shopButton.interactable = true;
-        shopButton.spriteState.Equals(shopButton.spriteState.highlightedSprite);
+        try
+        {
+            shopButton.interactable = true;
+            shopButton.spriteState.Equals(shopButton.spriteState.highlightedSprite);
+        }
+        catch (System.Exception)
+        {
+
+            
+        }
     }
     public void ToggleShopWindow()
     {
@@ -145,5 +164,18 @@ public class ShopScript : MonoBehaviour
         }
 
 
+    }
+    public void ShowItemDescription(string item)
+    {
+        itemDescriptionWindow.SetActive(true);
+        descriptionWindowOpen = true;
+        Touch touch = Input.GetTouch(Input.touchCount -1);
+        itemDescriptionWindow.transform.position = touch.position;
+        itemDescriptionWindow.GetComponentInChildren<TextMeshProUGUI>().text = item;
+    }
+    public void HideItemDescription()
+    {
+        itemDescriptionWindow.SetActive(false);
+        descriptionWindowOpen = false;
     }
 }

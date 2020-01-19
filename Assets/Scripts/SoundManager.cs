@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip pickedUpBullet;
     [SerializeField] AudioClip pickedUpPoint;
     [SerializeField] AudioClip freezenovaBombUsed;
+    [SerializeField] AudioClip notEnoughPoints;
 
     AudioSource audioSource;
 
@@ -86,6 +87,10 @@ public class SoundManager : MonoBehaviour
     public void FreezenovaBombUsed()
     {
         audioSource.PlayOneShot(freezenovaBombUsed, 1f);
+    }
+    public void NotEnoughPoints()
+    {
+        audioSource.PlayOneShot(notEnoughPoints, 1f);
     }
 
 }
