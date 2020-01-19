@@ -148,7 +148,8 @@ public class Enemy : MonoBehaviour
         }
 
 
-        Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
+        Enemy en= Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);
+        
     }
 
     private void DropPointText(int x)

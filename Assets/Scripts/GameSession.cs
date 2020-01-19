@@ -68,6 +68,7 @@ public class GameSession : MonoBehaviour
                 {
 
                 }
+                
                 for (int i = 0; i < enemySpawner.numberOfAddedEnemiesPerWave; i++)
                 {
                     enemySpawner.Add();
@@ -76,7 +77,10 @@ public class GameSession : MonoBehaviour
                 {
                     bulletSpawner.Add();
                 }
-                
+                //if(enemySpawner.numberOfSpawnsAtMoment < 7 && wave%5==0)
+                //{
+                //    enemySpawner.numberOfSpawnsAtMoment++;
+                //}
                 
                 timePassed = 0f;
             }
@@ -116,8 +120,8 @@ public class GameSession : MonoBehaviour
     public IEnumerator UpdateWave()
     {
         wait = true;
-        yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);
         wave++;
+        yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);        
         waveText.text = "Wave " + wave;
         shop.EnableShopButton();
         yield return new WaitForSeconds(waveBreak);

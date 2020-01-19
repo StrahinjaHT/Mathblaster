@@ -10,6 +10,8 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] protected bool spawnDuringBreak;
     [SerializeField] protected int numberOfTypesAtStart;
 
+    public int numberOfSpawnsAtMoment = 1;
+
     protected float timeBetweenSpawns;
     protected GameSession gameSession;
     
@@ -44,7 +46,11 @@ public abstract class Spawner : MonoBehaviour
 
             if (timeBetweenSpawns <= 0)
             {
-                Spawn();
+                for (int i = 0; i < numberOfSpawnsAtMoment; i++)
+                {
+                    Spawn();
+                }
+                
                 ResetTime();
             }
             else
