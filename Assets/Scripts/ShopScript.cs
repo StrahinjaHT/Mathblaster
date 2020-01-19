@@ -101,4 +101,22 @@ public class ShopScript : MonoBehaviour
 
 
     }
+    public void PurchaseFirestormBomb()
+    {
+        if (gameSession.DecreaseScoreAfterPurchase(10))
+        {
+            FindObjectOfType<UsableItemsController>().AddFirestormBomb();
+        }
+
+
+    }
+    public void PurchaseFreezenovaBomb()
+    {
+        if (gameSession.DecreaseScoreAfterPurchase(5))
+        {
+            FindObjectOfType<UsableItemsController>().AddFreezenovaBomb();
+        }
+
+
+    }
 }

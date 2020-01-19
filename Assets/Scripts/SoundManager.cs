@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip enemyPowerUp;
     [SerializeField] AudioClip pickedUpBullet;
     [SerializeField] AudioClip pickedUpPoint;
+    [SerializeField] AudioClip freezenovaBombUsed;
 
     AudioSource audioSource;
 
@@ -82,5 +83,9 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(pickedUpPoint, 1f);
     }
- 
+    public void FreezenovaBombUsed()
+    {
+        audioSource.PlayOneShot(freezenovaBombUsed, 1f);
+    }
+
 }

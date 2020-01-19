@@ -164,7 +164,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void Explode()
+    public void Explode()
     {
         soundManager.EnemyIsHit();
         ParticleSystem ps = Instantiate(GetComponentInChildren<ParticleSystem>(), transform.position, Quaternion.identity);
