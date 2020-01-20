@@ -31,6 +31,7 @@ public class EnemySpawner : Spawner
                 EnemyObject newEnemy = gameSession.enemies[0];
                 gameSession.enemies.Remove(newEnemy);
                 Enemies.Add(newEnemy);
+                
 
             }
    
@@ -42,9 +43,10 @@ public class EnemySpawner : Spawner
         {
 
             int randomPos = SelectPosition();
-
+            if(Enemies.Count<10)
             enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
-
+            else
+            enemy.enemyObject = Enemies[Random.Range(Enemies.Count-10, Enemies.Count)];
             Instantiate(enemy, SpawnPoints[randomPos].transform.position, Quaternion.identity);
         }
         catch

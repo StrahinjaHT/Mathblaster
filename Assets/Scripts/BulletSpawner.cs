@@ -43,8 +43,10 @@ public class BulletSpawner : Spawner
     public override void Spawn()
     {
         int randomPos = SelectPosition();
-
-        ammo.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
+        if (bulletObjects.Count < 3)
+            ammo.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
+        else
+            ammo.bulletObject = bulletObjects[Random.Range(bulletObjects.Count-3, bulletObjects.Count)];
         Instantiate(ammo, SpawnPoints[randomPos].transform.position, Quaternion.identity);
     }
 }

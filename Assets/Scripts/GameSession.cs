@@ -73,6 +73,7 @@ public class GameSession : MonoBehaviour
                 {
                     enemySpawner.Add();
                 }
+                if(wave%2==0)
                 for (int i = 0; i < bulletSpawner.numberOfAddedBulletsPerWave; i++)
                 {
                     bulletSpawner.Add();
