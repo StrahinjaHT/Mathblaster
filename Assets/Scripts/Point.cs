@@ -6,7 +6,7 @@ public class Point : PickUp
 {
     internal override void PickedUp()
     {
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerShipSetter player = FindObjectOfType<PlayerShipSetter>();
         FindObjectOfType<GameSession>().UpdateScoreByOne();
         if(player.health<player.maxHealth)
             player.health++;

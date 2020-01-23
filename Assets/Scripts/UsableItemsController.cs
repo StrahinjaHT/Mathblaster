@@ -34,6 +34,7 @@ public class UsableItemsController : MonoBehaviour
     {
         if (numberOfFreezenovaBombs <= 0)
         {
+            FindObjectOfType<SoundManager>().NotEnoughPoints();
             return;
         }
         foreach (Enemy e in FindObjectsOfType<Enemy>())
@@ -48,6 +49,7 @@ public class UsableItemsController : MonoBehaviour
     {
         if(numberOfFirestormBombs<=0)
         {
+            FindObjectOfType<SoundManager>().NotEnoughPoints();
             return;
         }
         foreach(Enemy e in FindObjectsOfType<Enemy>())

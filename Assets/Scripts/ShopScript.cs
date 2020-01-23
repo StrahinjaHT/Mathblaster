@@ -13,6 +13,7 @@ public class ShopScript : MonoBehaviour
     public GameObject itemDescriptionWindow;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
+    PlayerShipSetter playerShip;
     GameSession gameSession;
    
 
@@ -34,6 +35,7 @@ public class ShopScript : MonoBehaviour
         DisableShopButton();
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerShooting = FindObjectOfType<PlayerShooting>();
+        playerShip= FindObjectOfType<PlayerShipSetter>();
         gameSession = FindObjectOfType<GameSession>();
         UpdateShopItemPrices();
     }
@@ -111,9 +113,9 @@ public class ShopScript : MonoBehaviour
         
         if(gameSession.DecreaseScoreAfterPurchase(healthRefillPrice))
         {
-            playerMovement.health = playerMovement.maxHealth;
-            GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerMovement.health, playerMovement.maxHealth);
-            playerMovement.healthText.text = playerMovement.health.ToString();
+            playerShip.health = playerShip.maxHealth;
+            GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerShip.health, playerShip.maxHealth);
+            playerShip.healthText.text = playerShip.health.ToString();
         }
         
         
@@ -122,10 +124,10 @@ public class ShopScript : MonoBehaviour
     {
         if (gameSession.DecreaseScoreAfterPurchase(maxHealthIncreasePrice))
         {
-            playerMovement.maxHealth*=2;
-            playerMovement.health *= 2;
-            GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerMovement.health, playerMovement.maxHealth);
-            playerMovement.healthText.text = playerMovement.health.ToString();
+            playerShip.maxHealth*=2;
+            playerShip.health *= 2;
+            GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerShip.health, playerShip.maxHealth);
+            playerShip.healthText.text = playerShip.health.ToString();
 
             maxHealthIncreasePrice *= 2;
             UpdateShopItemPrices();
@@ -137,9 +139,9 @@ public class ShopScript : MonoBehaviour
     {
         if (gameSession.DecreaseScoreAfterPurchase(engineUpgradePrice))
         {
-            playerShooting.maxOverheat*= 2;
-            playerShooting.overheatDecreaseRate *= 2;
-            GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerShooting.overheatFactor, playerShooting.maxOverheat);
+            playerShip.maxOverheat*= 2;
+            playerShip.overheatDecreaseRate *= 2;
+            GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerShip.overheatFactor, playerShip.maxOverheat);
 
             engineUpgradePrice *= 2;
             UpdateShopItemPrices();

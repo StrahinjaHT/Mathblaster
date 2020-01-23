@@ -41,17 +41,21 @@ public class EnemySpawner : Spawner
     {
         try
         {
-
             int randomPos = SelectPosition();
-            if(Enemies.Count<10)
-            enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
-            else
-            enemy.enemyObject = Enemies[Random.Range(Enemies.Count-10, Enemies.Count)];
+            SelectEnemy();
             Instantiate(enemy, SpawnPoints[randomPos].transform.position, Quaternion.identity);
         }
         catch
         {
 
         }
+    }
+
+    private void SelectEnemy()
+    {
+        if (Enemies.Count < 10)
+            enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
+        else
+            enemy.enemyObject = Enemies[Random.Range(Enemies.Count - 10, Enemies.Count)];
     }
 }

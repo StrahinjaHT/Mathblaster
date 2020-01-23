@@ -15,6 +15,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] public float waveDuration = 10f;
     [SerializeField] public float waveBreak = 5f;
 
+    [SerializeField] public List<ShipObject> shipObjects;
 
 
     BulletSpawner bulletSpawner;

@@ -9,6 +9,7 @@ public class OptionsMenu : MonoBehaviour
 
     //public AudioMixer audioMixer;
     [SerializeField] Dropdown dropdown;
+    [SerializeField] Dropdown dropdown1;
     [SerializeField] Slider slider;
 
     // Start is called before the first frame update
@@ -38,6 +39,17 @@ public class OptionsMenu : MonoBehaviour
             
         }
         dropdown.RefreshShownValue();
+        try
+        {
+            dropdown1.value = PlayerPrefs.GetInt("PlayerShip",0);
+        }
+        catch (System.Exception)
+        {
+
+            
+
+        }
+        dropdown1.RefreshShownValue();
     }
 
     // Update is called once per frame
@@ -57,6 +69,11 @@ public class OptionsMenu : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(qualityIndex);
         PlayerPrefs.SetInt("Quality Index", qualityIndex);
+    }
+    public void SetShip(int shipValue)
+    {
+        FindObjectOfType<SoundManager>().Clicked();
+        PlayerPrefs.SetInt("PlayerShip", shipValue);
     }
 
     public void ResetScore()

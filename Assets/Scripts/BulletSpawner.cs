@@ -8,6 +8,7 @@ public class BulletSpawner : Spawner
     public Ammo ammo;
     public List<BulletObject> bulletObjects;
     [SerializeField] public  int numberOfAddedBulletsPerWave;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -43,10 +44,15 @@ public class BulletSpawner : Spawner
     public override void Spawn()
     {
         int randomPos = SelectPosition();
+        SelectBullet();
+        Instantiate(ammo, SpawnPoints[randomPos].transform.position, Quaternion.identity);
+    }
+
+    private void SelectBullet()
+    {
         if (bulletObjects.Count < 3)
             ammo.bulletObject = bulletObjects[Random.Range(0, bulletObjects.Count)];
         else
-            ammo.bulletObject = bulletObjects[Random.Range(bulletObjects.Count-3, bulletObjects.Count)];
-        Instantiate(ammo, SpawnPoints[randomPos].transform.position, Quaternion.identity);
+            ammo.bulletObject = bulletObjects[Random.Range(bulletObjects.Count - 3, bulletObjects.Count)];
     }
 }

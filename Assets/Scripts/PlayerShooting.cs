@@ -11,69 +11,33 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] public Bullet bullet;
     [SerializeField] Transform gun;
     [SerializeField] public TextMeshProUGUI bulletText;
-    [SerializeField] TextMeshProUGUI gunOverheatedText;
-    [SerializeField] Image overheatBar;
-
-    public float overheatFactor = 0f;
-    public float maxOverheat = 15f;
-    public float overheatDecreaseRate = 2;
-    public float slowFactor;
-    Color standardOverheatBarColor;
-    bool gunLock = false;
+    PlayerShipSetter playerShip;
     // Start is called before the first frame update
     void Start()
     {
         bullet.bulletObject = bulletObject;
         UpdateBulletText();
-        slowFactor = overheatFactor / maxOverheat;
-        standardOverheatBarColor = overheatBar.color;
+        playerShip = GetComponent<PlayerShipSetter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RegulateOverheat();
+        playerShip.RegulateOverheat();
     }
 
-    private void RegulateOverheat()
-    {
-        if (overheatFactor > 0)
-        {
-            if (overheatFactor > maxOverheat)
-            {
-                overheatFactor = maxOverheat;
-                lockGun();
-            }
-            else if (overheatFactor + bulletObject.number > maxOverheat && !gunLock)
-            {
-                overheatBar.color = Color.yellow;
-            }
-            else if(!gunLock)
-            {
-                overheatBar.color = standardOverheatBarColor;
-            }
-            overheatFactor -= Time.deltaTime * overheatDecreaseRate;
-        }
-
-        else
-        {
-            unlockGun();
-        }
-
-        slowFactor = overheatFactor / maxOverheat;
-        GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(overheatFactor, maxOverheat);
-    }
+    
 
     public void Shoot()
     {
-        if(gunLock==false)
+        if(playerShip.gunLock == false)
         {
             var gunPos = gun.position;
             FindObjectOfType<SoundManager>().ShotsFired();
 
             Instantiate(bullet, gunPos, transform.rotation);
             GetComponentInChildren<ParticleSystem>().Play();
-            overheatFactor += bulletObject.number;
+            playerShip.overheatFactor += bulletObject.number;
         }
         
 
@@ -90,17 +54,6 @@ public class PlayerShooting : MonoBehaviour
         bulletText.text = bulletObject.number.ToString();
         bulletText.color = bulletObject.color;
     }
-    public void lockGun()
-    {
-        gunLock = true;
-        gunOverheatedText.enabled = true;
-        overheatBar.color = Color.red;
-    }
-    public void unlockGun()
-    {
-        gunLock = false;
-        gunOverheatedText.enabled = false;
-        overheatBar.color = standardOverheatBarColor;
-    }
+    
 }
 
