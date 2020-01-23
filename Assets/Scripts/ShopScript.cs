@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class ShopScript : MonoBehaviour
 {
     [SerializeField] Button shopButton;
+    [SerializeField] Button purchaseSCStorm;
+    [SerializeField] Button purchaseBSTitan;
+
     public static bool shopWindowOpen = false;
     public static bool descriptionWindowOpen = false;
     public GameObject shopMenuUI;
@@ -20,14 +23,20 @@ public class ShopScript : MonoBehaviour
     [SerializeField] int healthRefillPrice = 10;
     [SerializeField] int maxHealthIncreasePrice = 20;
     [SerializeField] int engineUpgradePrice = 30;
-    [SerializeField] int freezenovaBombPrice = 10;
+    [SerializeField] int stunRayPrice = 10;
     [SerializeField] int firestormBombPrice = 20;
+    [SerializeField] int SCStormPrice = 100;
+    [SerializeField] int BSTitanPrice = 200;
 
     [SerializeField] TextMeshProUGUI healthRefillPriceText;
     [SerializeField] TextMeshProUGUI maxHealthIncreasePriceText;
     [SerializeField] TextMeshProUGUI engineUpgradePriceText;
-    [SerializeField] TextMeshProUGUI freezenovaBombPriceText;
+    [SerializeField] TextMeshProUGUI stunRayPriceText;
     [SerializeField] TextMeshProUGUI firestormBombPriceText;
+    [SerializeField] TextMeshProUGUI SCStormPriceText;
+    [SerializeField] TextMeshProUGUI BSTitanPriceText;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +44,18 @@ public class ShopScript : MonoBehaviour
         DisableShopButton();
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerShooting = FindObjectOfType<PlayerShooting>();
-        playerShip= FindObjectOfType<PlayerShipSetter>();
+        playerShip = FindObjectOfType<PlayerShipSetter>();
         gameSession = FindObjectOfType<GameSession>();
         UpdateShopItemPrices();
+        UpdateShipPurchaseButtons();
+    }
+
+    private void UpdateShipPurchaseButtons()
+    {
+        if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") DisablePurchaseSCStormButton();
+        else EnablePurchaseSCStormButton();
+        if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") DisablePurchaseBSTitanButton();
+        else EnablePurchaseBSTitanButton();
     }
 
     private void UpdateShopItemPrices()
@@ -45,8 +63,13 @@ public class ShopScript : MonoBehaviour
         healthRefillPriceText.text = "Price: " + healthRefillPrice.ToString() + " points";
         maxHealthIncreasePriceText.text = "Price: " + maxHealthIncreasePrice.ToString() + " points";
         engineUpgradePriceText.text = "Price: " + engineUpgradePrice.ToString() + " points";
-        freezenovaBombPriceText.text = "Price: " + freezenovaBombPrice.ToString() + " points";
+        stunRayPriceText.text = "Price: " + stunRayPrice.ToString() + " points";
         firestormBombPriceText.text = "Price: " + firestormBombPrice.ToString() + " points";
+        SCStormPriceText.text = "Price: " + SCStormPrice.ToString() + " points";
+        BSTitanPriceText.text = "Price: " + BSTitanPrice.ToString() + " points";
+
+   
+        
     }
 
     public void DisableShopButton()
@@ -62,6 +85,32 @@ public class ShopScript : MonoBehaviour
             
         }
     }
+    public void DisablePurchaseSCStormButton()
+    {
+        try
+        {
+            purchaseSCStorm.interactable = false;
+            purchaseSCStorm.spriteState.Equals(purchaseSCStorm.spriteState.disabledSprite);
+        }
+        catch (System.Exception)
+        {
+
+
+        }
+    }
+    public void DisablePurchaseBSTitanButton()
+    {
+        try
+        {
+            purchaseBSTitan.interactable = false;
+            purchaseBSTitan.spriteState.Equals(purchaseBSTitan.spriteState.disabledSprite);
+        }
+        catch (System.Exception)
+        {
+
+
+        }
+    }
     public void EnableShopButton()
     {
         try
@@ -73,6 +122,32 @@ public class ShopScript : MonoBehaviour
         {
 
             
+        }
+    }
+    public void EnablePurchaseSCStormButton()
+    {
+        try
+        {
+            purchaseSCStorm.interactable = true;
+            purchaseSCStorm.spriteState.Equals(purchaseSCStorm.spriteState.highlightedSprite);
+        }
+        catch (System.Exception)
+        {
+
+
+        }
+    }
+    public void EnablePurchaseBSTitanButton()
+    {
+        try
+        {
+            purchaseBSTitan.interactable = true;
+            purchaseBSTitan.spriteState.Equals(purchaseBSTitan.spriteState.highlightedSprite);
+        }
+        catch (System.Exception)
+        {
+
+
         }
     }
     public void ToggleShopWindow()
@@ -158,14 +233,40 @@ public class ShopScript : MonoBehaviour
 
 
     }
-    public void PurchaseFreezenovaBomb()
+    public void PurchaseStunRay()
     {
-        if (gameSession.DecreaseScoreAfterPurchase(freezenovaBombPrice))
+        if (gameSession.DecreaseScoreAfterPurchase(stunRayPrice))
         {
-            FindObjectOfType<UsableItemsController>().AddFreezenovaBomb();
+            FindObjectOfType<UsableItemsController>().AddStunRay();
         }
 
 
+    }
+    public void PurchaseSCStorm()
+    {
+        if (gameSession.DecreaseScoreAfterPurchase(SCStormPrice))
+        {
+            PlayerPrefs.SetString("SCStormUnlocked", "true");
+            UpdateShipPurchaseButtons();
+        }
+
+
+    }
+    public void PurchaseBSTitan()
+    {
+        if (gameSession.DecreaseScoreAfterPurchase(BSTitanPrice))
+        {
+            PlayerPrefs.SetString("BSTitanUnlocked", "true");
+            UpdateShipPurchaseButtons();
+        }
+
+
+    }
+    public void ResetShips()
+    {
+        PlayerPrefs.SetString("SCStormUnlocked", "false");
+        PlayerPrefs.SetString("BSTitanUnlocked", "false");
+        UpdateShipPurchaseButtons();
     }
     public void ShowItemDescription(string item)
     {
@@ -180,4 +281,5 @@ public class ShopScript : MonoBehaviour
         itemDescriptionWindow.SetActive(false);
         descriptionWindowOpen = false;
     }
+
 }

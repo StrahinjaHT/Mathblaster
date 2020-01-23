@@ -11,10 +11,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Dropdown dropdown;
     [SerializeField] Dropdown dropdown1;
     [SerializeField] Slider slider;
-
+    Dropdown.OptionData SSHawk;
+    Dropdown.OptionData SCStorm;
+    Dropdown.OptionData BSTitan;
     // Start is called before the first frame update
     void Start()
     {
+        
 
         try
         {
@@ -39,6 +42,7 @@ public class OptionsMenu : MonoBehaviour
             
         }
         dropdown.RefreshShownValue();
+        LoadShipDropDown();
         try
         {
             dropdown1.value = PlayerPrefs.GetInt("PlayerShip",0);
@@ -80,5 +84,21 @@ public class OptionsMenu : MonoBehaviour
     {
         FindObjectOfType<SoundManager>().Clicked();
         PlayerPrefs.DeleteKey("HighScore");
+    }
+    public void LoadShipDropDown()
+    {
+        SSHawk = new Dropdown.OptionData("SS Hawk");
+        SCStorm = new Dropdown.OptionData("SC Storm");
+        BSTitan = new Dropdown.OptionData("BS Titan");
+
+        //Dropdown.OptionDataList shipOptions = new Dropdown.OptionDataList();
+        dropdown1.options.Insert(0,SSHawk);
+        
+        if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") dropdown1.options.Insert(1,SCStorm);
+        if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") dropdown1.options.Insert(2,BSTitan);
+
+      
+        //if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") DisablePurchaseBSTitanButton();
+        //else EnablePurchaseBSTitanButton();
     }
 }

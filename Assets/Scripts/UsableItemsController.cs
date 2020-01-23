@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class UsableItemsController : MonoBehaviour
 {
-    int numberOfFreezenovaBombs = 0;
+    int numberOfStunRays = 0;
     int numberOfFirestormBombs = 0;
-    [SerializeField] TextMeshProUGUI numberOfFreezenovaBombsText;
+    [SerializeField] TextMeshProUGUI numberOfStunRaysText;
     [SerializeField] TextMeshProUGUI numberOfFirestormBombsText;
     // Start is called before the first frame update
     void Start()
@@ -17,12 +17,12 @@ public class UsableItemsController : MonoBehaviour
 
     private void UpdateItemState()
     {
-        numberOfFreezenovaBombsText.text = "x " + numberOfFreezenovaBombs.ToString();
+        numberOfStunRaysText.text = "x " + numberOfStunRays.ToString();
         numberOfFirestormBombsText.text = "x " + numberOfFirestormBombs.ToString();
     }
-    public void AddFreezenovaBomb()
+    public void AddStunRay()
     {
-        numberOfFreezenovaBombs++;
+        numberOfStunRays++;
         UpdateItemState();
     }
     public void AddFirestormBomb()
@@ -30,9 +30,9 @@ public class UsableItemsController : MonoBehaviour
         numberOfFirestormBombs++;
         UpdateItemState();
     }
-    public void UseFreezenovaBomb()
+    public void UseStunRay()
     {
-        if (numberOfFreezenovaBombs <= 0)
+        if (numberOfStunRays <= 0)
         {
             FindObjectOfType<SoundManager>().NotEnoughPoints();
             return;
@@ -42,7 +42,7 @@ public class UsableItemsController : MonoBehaviour
             e.speed = 0f;
         }
         FindObjectOfType<SoundManager>().FreezenovaBombUsed();
-        numberOfFreezenovaBombs--;
+        numberOfStunRays--;
         UpdateItemState();
     }
     public void UseFirestormBomb()
