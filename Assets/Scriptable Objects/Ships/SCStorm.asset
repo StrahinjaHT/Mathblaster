@@ -15,6 +15,6 @@ MonoBehaviour:
   name: SC Storm
   maxHealth: 20
   maxOverheat: 20
-  speed: 18
+  speed: 13
   sprite: {fileID: 21300020, guid: 1434a8766c52f7645bc546ad93c0ac3e, type: 3}
   description: 

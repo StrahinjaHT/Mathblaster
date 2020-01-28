@@ -15,6 +15,6 @@ MonoBehaviour:
   name: SS Hawk
   maxHealth: 20
   maxOverheat: 15
-  speed: 15
+  speed: 11
   sprite: {fileID: 21300000, guid: 1434a8766c52f7645bc546ad93c0ac3e, type: 3}
   description: 

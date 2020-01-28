@@ -15,6 +15,6 @@ MonoBehaviour:
   name: BS Titan
   maxHealth: 30
   maxOverheat: 20
-  speed: 12
+  speed: 9
   sprite: {fileID: 21300030, guid: 1434a8766c52f7645bc546ad93c0ac3e, type: 3}
   description: 

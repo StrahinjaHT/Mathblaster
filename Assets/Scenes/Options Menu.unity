@@ -1043,6 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452314880}
   - component: {fileID: 452314881}
+  - component: {fileID: 452314882}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -1118,6 +1119,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &452314882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452314879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59e2ac65eed3fe499f43ace34ecf4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &455913934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,7 +2734,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: SS Hawk
 --- !u!222 &975868693
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3043,6 +3056,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172370479}
   m_CullTransparentMesh: 0
+--- !u!1001 &1189574050
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2719146141646089978, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_Name
+      value: AdController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719146141646089956, guid: cb9a9ad0bb5b6af4db7face87d585e9e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb9a9ad0bb5b6af4db7face87d585e9e, type: 3}
 --- !u!1 &1243245272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3999,7 +4081,13 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options: []
+    m_Options:
+    - m_Text: SS Hawk
+      m_Image: {fileID: 0}
+    - m_Text: SC Storm
+      m_Image: {fileID: 0}
+    - m_Text: BS Titan
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

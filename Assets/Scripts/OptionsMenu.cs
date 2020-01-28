@@ -11,9 +11,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Dropdown dropdown;
     [SerializeField] Dropdown dropdown1;
     [SerializeField] Slider slider;
-    Dropdown.OptionData SSHawk;
-    Dropdown.OptionData SCStorm;
-    Dropdown.OptionData BSTitan;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,18 +85,13 @@ public class OptionsMenu : MonoBehaviour
     }
     public void LoadShipDropDown()
     {
-        SSHawk = new Dropdown.OptionData("SS Hawk");
-        SCStorm = new Dropdown.OptionData("SC Storm");
-        BSTitan = new Dropdown.OptionData("BS Titan");
 
         
-        dropdown1.options.Insert(0,SSHawk);
         
-        if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") dropdown1.options.Insert(1,SCStorm);
-        if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") dropdown1.options.Insert(2,BSTitan);
+        //if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") 
+        //if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") 
 
       
-        //if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") DisablePurchaseBSTitanButton();
-        //else EnablePurchaseBSTitanButton();
+
     }
 }
