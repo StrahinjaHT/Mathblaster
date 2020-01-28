@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] TextMeshProUGUI startMenuHighScoreText;
     public AudioMixer audioMixer;
 
-    bool showingAd = false;
+    bool showingBannerAd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,20 +51,14 @@ public class SceneLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(showingAd)
-        //{
-        //    if(Input.touchCount>0)
-        //    {
-        //        showingAd = false;
-        //    }
-        //}
+
     }
     public void LoadGame()
     {
-        //if(SceneManager.GetActiveScene().name== "Game Over")
-        //{
-        //    PlayVideoAd();
-        //}
+        if (SceneManager.GetActiveScene().name == "Game Over")
+        {
+            PlayBannerVideoAd();
+        }
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Game");
         
@@ -83,7 +77,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
-        PlayVideoAd();
+        PlayBannerVideoAd();
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Start Menu");
         
@@ -129,6 +123,7 @@ public class SceneLoader : MonoBehaviour
     public void PlayRewardedVideoAd()
     {
         FindObjectOfType<AdController>().ShowRewardedVideoAd();
+        
         //showingAd = true;
     }
     public void PlayVideoAd()
@@ -139,6 +134,6 @@ public class SceneLoader : MonoBehaviour
     public void PlayBannerVideoAd()
     {
         FindObjectOfType<AdController>().ShowBannerVideoAd();
-        //showingAd = true;
+
     }
 }

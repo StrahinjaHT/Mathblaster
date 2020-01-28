@@ -86,6 +86,12 @@ public class GameSession : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         soundManager.PickedUpPoint();
     }
+    public void UpdateScoreByRandomAmount()
+    {
+        score+=Random.Range(2,5);
+        scoreText.text = "Score: " + score.ToString();
+        soundManager.PickedUpPoint();
+    }
     public void UpdateScore(int x)
     {
         score+=x;

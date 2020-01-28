@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class ShopScript : MonoBehaviour
 {
     [SerializeField] Button shopButton;
+    [SerializeField] Button showAdButton;
     [SerializeField] Button purchaseSCStorm;
     [SerializeField] Button purchaseBSTitan;
-
+    public int lastWavePlayedAd;
     public static bool shopWindowOpen = false;
     public static bool descriptionWindowOpen = false;
     public GameObject shopMenuUI;
@@ -177,7 +178,39 @@ public class ShopScript : MonoBehaviour
         shopMenuUI.SetActive(true);
         shopWindowOpen = true;
         Time.timeScale = 0f;
+        if(gameSession.wave>lastWavePlayedAd)
+        {
+            EnableShowAdButton();
+        }
         
+    }
+
+
+    public void EnableShowAdButton()
+    {
+        try
+        {
+            showAdButton.interactable = true;
+            showAdButton.spriteState.Equals(showAdButton.spriteState.highlightedSprite);
+        }
+        catch (System.Exception)
+        {
+
+
+        }
+    }
+    public void DisableShowAdButton()
+    {
+        try
+        {
+            showAdButton.interactable = false;
+            showAdButton.spriteState.Equals(showAdButton.spriteState.disabledSprite);
+        }
+        catch (System.Exception)
+        {
+
+
+        }
     }
     // Update is called once per frame
     void Update()
@@ -285,6 +318,9 @@ public class ShopScript : MonoBehaviour
     public void PlayRewardedVideoAd()
     {
         FindObjectOfType<AdController>().ShowRewardedVideoAd();
+        FindObjectOfType<GameSession>().UpdateScoreByRandomAmount();
+        DisableShowAdButton();
+        lastWavePlayedAd = gameSession.wave;
     }
 
 }
