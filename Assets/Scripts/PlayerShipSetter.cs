@@ -4,12 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-//public enum ShipType
-//{
-//    SSHawk,
-//    SCStorm,
-//    BSTitan
-//}
+
 public class PlayerShipSetter : MonoBehaviour
 {
     [SerializeField] public float speed ;
@@ -27,7 +22,7 @@ public class PlayerShipSetter : MonoBehaviour
     public bool gunLock = false;
     SoundManager soundManager;
     PlayerShooting playerShooting;
-    //public ShipType shipType;
+    
     public ShipObject shipObject;
     
 
@@ -57,21 +52,6 @@ public class PlayerShipSetter : MonoBehaviour
 
     private void SetShip()
     {
-        //shipType = (ShipType)PlayerPrefs.GetInt("PlayerShip", 0); 
-
-
-        //if (shipType == ShipType.SSHawk)
-        //{
-        //    shipObject = FindObjectOfType<GameSession>().shipObjects.Find(x => x.name == "SS Hawk");
-        //}
-        //else if (shipType == ShipType.SCStorm)
-        //{
-        //    shipObject = FindObjectOfType<GameSession>().shipObjects.Find(x => x.name == "SC Storm");
-        //}
-        //else if (shipType == ShipType.BSTitan)
-        //{
-        //    shipObject = FindObjectOfType<GameSession>().shipObjects.Find(x => x.name == "BS Titan");
-        //}
 
 
         shipObject = FindObjectOfType<GameSession>().shipObjects[PlayerPrefs.GetInt("PlayerShip", 0)];

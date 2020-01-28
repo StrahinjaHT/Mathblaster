@@ -69,20 +69,10 @@ public class GameSession : MonoBehaviour
                 {
 
                 }
-                
-                for (int i = 0; i < enemySpawner.numberOfAddedEnemiesPerWave; i++)
-                {
-                    enemySpawner.Add();
-                }
-                if(wave%2==0)
-                for (int i = 0; i < bulletSpawner.numberOfAddedBulletsPerWave; i++)
-                {
-                    bulletSpawner.Add();
-                }
-                //if(enemySpawner.numberOfSpawnsAtMoment < 7 && wave%5==0)
-                //{
-                //    enemySpawner.numberOfSpawnsAtMoment++;
-                //}
+
+                enemySpawner.Add();
+                bulletSpawner.Add();
+               
                 
                 timePassed = 0f;
             }

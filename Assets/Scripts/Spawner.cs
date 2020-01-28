@@ -9,6 +9,8 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] protected float maxStartTimeBetweenSpawns;
     [SerializeField] protected bool spawnDuringBreak;
     [SerializeField] protected int numberOfTypesAtStart;
+    [SerializeField] protected int numberOfTypesPerWave;
+    [SerializeField] protected int addEveryWave;
 
     public int numberOfSpawnsAtMoment = 1;
 
@@ -31,10 +33,7 @@ public abstract class Spawner : MonoBehaviour
         
         gameSession = FindObjectOfType<GameSession>();
         ResetTime();
-        for (int i = 0; i < numberOfTypesAtStart; i++)
-        {
-            Add();
-        }
+        AddAtStart();
         
     }
 
@@ -82,6 +81,7 @@ public abstract class Spawner : MonoBehaviour
         return randomPos;
     }
     public abstract void Add();
+    public abstract void AddAtStart();
     public abstract void Spawn();
 
 }

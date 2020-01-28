@@ -55,6 +55,10 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
+        if(SceneManager.GetActiveScene().name== "Game Over")
+        {
+            PlayVideoAd();
+        }
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Game");
         
@@ -73,7 +77,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
-
+        PlayBannerVideoAd();
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Start Menu");
         
@@ -115,5 +119,17 @@ public class SceneLoader : MonoBehaviour
     {
         FindObjectOfType<SoundManager>().Clicked();
         Application.Quit();
+    }
+    public void PlayRewardedVideoAd()
+    {
+        FindObjectOfType<AdController>().ShowRewardedVideoAd();
+    }
+    public void PlayVideoAd()
+    {
+        FindObjectOfType<AdController>().ShowVideoAd();
+    }
+    public void PlayBannerVideoAd()
+    {
+        FindObjectOfType<AdController>().ShowBannerVideoAd();
     }
 }

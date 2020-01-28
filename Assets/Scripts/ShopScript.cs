@@ -152,6 +152,7 @@ public class ShopScript : MonoBehaviour
     }
     public void ToggleShopWindow()
     {
+        if (PauseGame.gameIsPaused) return;
         FindObjectOfType<SoundManager>().Clicked();
         if (shopWindowOpen)
         {
@@ -280,6 +281,10 @@ public class ShopScript : MonoBehaviour
     {
         itemDescriptionWindow.SetActive(false);
         descriptionWindowOpen = false;
+    }
+    public void PlayRewardedVideoAd()
+    {
+        FindObjectOfType<AdController>().ShowRewardedVideoAd();
     }
 
 }

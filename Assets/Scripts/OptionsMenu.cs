@@ -74,10 +74,10 @@ public class OptionsMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
         PlayerPrefs.SetInt("Quality Index", qualityIndex);
     }
-    public void SetShip(int shipValue)
+    public void SetShip(int ship)
     {
         FindObjectOfType<SoundManager>().Clicked();
-        PlayerPrefs.SetInt("PlayerShip", shipValue);
+        PlayerPrefs.SetInt("PlayerShip", ship);
     }
 
     public void ResetScore()
@@ -91,7 +91,7 @@ public class OptionsMenu : MonoBehaviour
         SCStorm = new Dropdown.OptionData("SC Storm");
         BSTitan = new Dropdown.OptionData("BS Titan");
 
-        //Dropdown.OptionDataList shipOptions = new Dropdown.OptionDataList();
+        
         dropdown1.options.Insert(0,SSHawk);
         
         if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") dropdown1.options.Insert(1,SCStorm);

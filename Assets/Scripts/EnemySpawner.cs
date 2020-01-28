@@ -7,7 +7,7 @@ public class EnemySpawner : Spawner
 
     public Enemy enemy;
     public List<EnemyObject> Enemies;
-    [SerializeField] public int numberOfAddedEnemiesPerWave;
+    
 
     // Start is called before the first frame update
     public override void Start()
@@ -25,15 +25,19 @@ public class EnemySpawner : Spawner
 
     public override void Add()
     {
-        
-            if (gameSession.enemies.Count != 0)
+        if (FindObjectOfType<GameSession>().wave % addEveryWave == 0)
+            for (int i = 0; i < numberOfTypesPerWave; i++)
             {
-                EnemyObject newEnemy = gameSession.enemies[0];
-                gameSession.enemies.Remove(newEnemy);
-                Enemies.Add(newEnemy);
-                
+                if (gameSession.enemies.Count != 0)
+                {
+                    EnemyObject newEnemy = gameSession.enemies[0];
+                    gameSession.enemies.Remove(newEnemy);
+                    Enemies.Add(newEnemy);
 
+
+                }
             }
+        
    
     }
 
@@ -57,5 +61,20 @@ public class EnemySpawner : Spawner
             enemy.enemyObject = Enemies[Random.Range(0, Enemies.Count)];
         else
             enemy.enemyObject = Enemies[Random.Range(Enemies.Count - 10, Enemies.Count)];
+    }
+
+    public override void AddAtStart()
+    {
+        for (int i = 0; i < numberOfTypesAtStart; i++)
+        {
+            if (gameSession.enemies.Count != 0)
+            {
+                EnemyObject newEnemy = gameSession.enemies[0];
+                gameSession.enemies.Remove(newEnemy);
+                Enemies.Add(newEnemy);
+
+
+            }
+        }
     }
 }

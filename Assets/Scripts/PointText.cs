@@ -16,6 +16,7 @@ public class PointText : MonoBehaviour
     void Update()
     {
         DestroyAfterSetTime();
+        if(!PauseGame.gameIsPaused && !ShopScript.shopWindowOpen)
         FloatUp();
     }
     private void DestroyAfterSetTime()
