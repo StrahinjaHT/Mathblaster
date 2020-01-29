@@ -14,6 +14,7 @@ public class SceneLoader : MonoBehaviour
 
     bool showingBannerAd = false;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,7 @@ public class SceneLoader : MonoBehaviour
 
         try
         {
-            //TextMeshProUGUI gameOverScoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
-            //TextMeshProUGUI startMenuHighScoreText = GameObject.Find("Highscore").GetComponent<TextMeshProUGUI>();
+            
             if (gameOverScoreText != null)
             {
                 int score = FindObjectOfType<GameSession>().score;
@@ -55,10 +55,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
-        if (SceneManager.GetActiveScene().name == "Game Over")
+        if (SceneManager.GetActiveScene().name == "Game Over" && GameSession.counter%3==0)
         {
-            PlayBannerVideoAd();
+            PlayVideoAd();
         }
+        GameSession.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Game");
         
@@ -77,7 +78,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
-        PlayBannerVideoAd();
+        if (GameSession.counter % 3 == 0) 
+        PlayVideoAd();
+        GameSession.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Start Menu");
         
@@ -110,6 +113,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGameOver()
     {
+        if (GameSession.counter % 3 == 0)
+            PlayVideoAd();
+        GameSession.counter++;
         SceneManager.LoadScene("Game Over");
         
         

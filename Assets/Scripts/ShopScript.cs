@@ -178,10 +178,7 @@ public class ShopScript : MonoBehaviour
         shopMenuUI.SetActive(true);
         shopWindowOpen = true;
         Time.timeScale = 0f;
-        if(gameSession.wave>lastWavePlayedAd)
-        {
-            EnableShowAdButton();
-        }
+        
         
     }
 
@@ -215,7 +212,12 @@ public class ShopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameSession.wave > lastWavePlayedAd && FindObjectOfType<AdController>().RewardedVideoIsReady())
+        {
+
+            EnableShowAdButton();
+        }
+        else DisableShowAdButton();
     }
     public void PurchaseHealthRefill()
     {
@@ -238,6 +240,7 @@ public class ShopScript : MonoBehaviour
             GameObject.Find("Health Bar").GetComponent<SimpleHealthBar>().UpdateBar(playerShip.health, playerShip.maxHealth);
             playerShip.healthText.text = playerShip.health.ToString();
 
+            healthRefillPrice *= 2;
             maxHealthIncreasePrice *= 2;
             UpdateShopItemPrices();
         }

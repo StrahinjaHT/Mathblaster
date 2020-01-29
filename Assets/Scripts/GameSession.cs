@@ -28,7 +28,7 @@ public class GameSession : MonoBehaviour
     public float timePassed = 0f;
     public bool wait = false;
 
-
+    public static int counter = 1;
 
     private void Awake()
     {

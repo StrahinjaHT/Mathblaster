@@ -76,4 +76,12 @@ public class AdController : MonoBehaviour
             }
         }
     }
+    public bool RewardedVideoIsReady()
+    {
+        if (Monetization.IsReady(rewardedVideoAd))
+        {
+            return true;
+        }
+        return false;
+    }
 }
