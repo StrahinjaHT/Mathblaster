@@ -218,7 +218,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.9000244, y: -210}
-  m_SizeDelta: {x: 281.4, y: 95.3}
+  m_SizeDelta: {x: 200, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172340368
 MonoBehaviour:
@@ -496,8 +496,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -758,8 +758,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.9000244, y: 2}
-  m_SizeDelta: {x: -428.8, y: -66.9}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -247.90002, y: -66.900024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165404966
 MonoBehaviour:
@@ -1018,10 +1018,10 @@ RectTransform:
   m_Father: {fileID: 1165404965}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.9000244, y: 223}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 61.899994}
+  m_SizeDelta: {x: -0.7999878, y: -257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871049677
 MonoBehaviour:
@@ -1043,7 +1043,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Guess i'll do this one later...
+  m_text: '- Use the joystick on the left side od the screen to move
+
+    - tap the screen to shoot a number in that direction
+
+    -Shoot at enemy numbers to subtract them, the remainder is added to your score
+
+    -Enemy numbers will damage your ship if they hit you (your hit points are presented
+    by a green bar in the top left corner)
+
+    -Shooting too often will overheat your ship and slow you down, and even make you
+    unable to shoot for a short period if guns are abused (overheating is presented
+    by a blue bar in the top left corner)
+
+    -The shop will be available between the waves of enemies. There you will be able
+    to buy many cool items and even unlock new ships, so don''t forget to visit it!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7bfcce629de6c0a458244dc877206b6a, type: 2}
@@ -1071,14 +1085,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1109,15 +1123,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -401.3433, y: 0, z: -421.16284, w: -334.45276}
+  m_margin: {x: 25.524302, y: 0, z: -2.7761087, w: 4.7798367}
   m_textInfo:
     textComponent: {fileID: 1871049677}
-    characterCount: 31
+    characterCount: 671
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 6
+    spaceCount: 130
+    wordCount: 131
     linkCount: 0
-    lineCount: 1
+    lineCount: 10
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1224,11 +1238,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
-        type: 3}
-      propertyPath: highScoreText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8370538970983808275, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1283,6 +1292,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370538970983808272, guid: 4aa923c7b85d7b649a00209a02a2fc9b,
+        type: 3}
+      propertyPath: highScoreText
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa923c7b85d7b649a00209a02a2fc9b, type: 3}

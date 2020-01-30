@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -137,9 +135,9 @@ public class SceneLoader : MonoBehaviour
         FindObjectOfType<AdController>().ShowVideoAd();
         //showingAd = true;
     }
-    public void PlayBannerVideoAd()
-    {
-        FindObjectOfType<AdController>().ShowBannerVideoAd();
+    //public void PlayBannerVideoAd()
+    //{
+    //    FindObjectOfType<AdController>().ShowBannerVideoAd();
 
-    }
+    //}
 }

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Monetization;
+﻿using UnityEngine;
+using UnityEngine.Advertisements;
 
-public class AdController : MonoBehaviour
+public class AdController : MonoBehaviour,IUnityAdsListener
 {
     public static AdController instance;
     private string gameId = "3443841";
@@ -27,7 +25,8 @@ public class AdController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Monetization.Initialize(gameId, true);
+        Advertisement.AddListener(this);
+        Advertisement.Initialize(gameId, true);
     }
 
     // Update is called once per frame
@@ -37,51 +36,61 @@ public class AdController : MonoBehaviour
     }
     public void ShowVideoAd()
     {
-        if(Monetization.IsReady(videoAd))
+        if(Advertisement.IsReady(videoAd))
         {
-            ShowAdPlacementContent ad = null;
-            ad = Monetization.GetPlacementContent(videoAd) as ShowAdPlacementContent;
 
-            if(ad!=null)
-            {
-                ad.Show();
-            }
+            Advertisement.Show(videoAd);
             
         }
 
     }
     public void ShowRewardedVideoAd()
     {
-        if (Monetization.IsReady(rewardedVideoAd))
+        if (Advertisement.IsReady(rewardedVideoAd))
         {
-            ShowAdPlacementContent ad = null;
-            ad = Monetization.GetPlacementContent(rewardedVideoAd) as ShowAdPlacementContent;
-
-            if (ad != null)
-            {
-                ad.Show();
-            }
+            Advertisement.Show(rewardedVideoAd);
         }
     }
-    public void ShowBannerVideoAd()
-    {
-        if (Monetization.IsReady(bannerAd))
-        {
-            ShowAdPlacementContent ad = null;
-            ad = Monetization.GetPlacementContent(bannerAd) as ShowAdPlacementContent;
-
-            if (ad != null)
-            {
-                ad.Show();
-            }
-        }
-    }
+    
     public bool RewardedVideoIsReady()
     {
-        if (Monetization.IsReady(rewardedVideoAd))
+        if (Advertisement.IsReady(rewardedVideoAd))
         {
             return true;
         }
         return false;
+    }
+
+    public void OnUnityAdsReady(string placementId)
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsDidError(string message)
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsDidStart(string placementId)
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    {
+        if (showResult == ShowResult.Finished)
+        {
+            // Reward the user for watching the ad to completion.
+            if(placementId==rewardedVideoAd)
+            FindObjectOfType<GameSession>().UpdateScoreByRandomAmount();
+        }
+        else if (showResult == ShowResult.Skipped)
+        {
+            // Do not reward the user for skipping the ad.
+        }
+        else if (showResult == ShowResult.Failed)
+        {
+            Debug.LogWarning("The ad did not finish due to an error.");
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -321,7 +319,7 @@ public class ShopScript : MonoBehaviour
     public void PlayRewardedVideoAd()
     {
         FindObjectOfType<AdController>().ShowRewardedVideoAd();
-        FindObjectOfType<GameSession>().UpdateScoreByRandomAmount();
+
         DisableShowAdButton();
         lastWavePlayedAd = gameSession.wave;
     }
