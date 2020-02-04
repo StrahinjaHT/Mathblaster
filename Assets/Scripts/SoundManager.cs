@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip pickedUpPoint;
     [SerializeField] AudioClip freezenovaBombUsed;
     [SerializeField] AudioClip notEnoughPoints;
+    public string music;
 
     AudioSource audioSource;
 
@@ -61,10 +62,10 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayTheme()
     {
-        
+        music = PlayerPrefs.GetString("music", "true");
         audioSource = GetComponent<AudioSource>();
-
-        audioSource.Play();
+        if (PlayerPrefs.GetString("music", "true") == "true")
+            audioSource.Play();
     }
     public void StopTheme()
     {

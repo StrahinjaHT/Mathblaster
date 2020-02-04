@@ -53,7 +53,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
-        if (SceneManager.GetActiveScene().name == "Game Over" && GameSession.counter%3==0)
+        if (SceneManager.GetActiveScene().name == "Game Over" && GameSession.counter%5==0)
         {
             PlayVideoAd();
         }
@@ -76,7 +76,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
-        if (GameSession.counter % 3 == 0) 
+        if (GameSession.counter % 5 == 0) 
         PlayVideoAd();
         GameSession.counter++;
         FindObjectOfType<SoundManager>().Clicked();
@@ -97,6 +97,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadOptionsMenu()
     {
+        if (GameSession.counter % 5 == 0)
+            PlayVideoAd();
+        GameSession.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Options Menu");
       
@@ -104,6 +107,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadHelpScreen()
     {
+        if (GameSession.counter % 5 == 0)
+            PlayVideoAd();
+        GameSession.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Help Screen");
 
@@ -111,7 +117,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGameOver()
     {
-        if (GameSession.counter % 3 == 0)
+        if (GameSession.counter % 5 == 0)
             PlayVideoAd();
         GameSession.counter++;
         SceneManager.LoadScene("Game Over");

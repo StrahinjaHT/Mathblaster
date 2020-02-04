@@ -9,24 +9,59 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Dropdown dropdown;
     [SerializeField] Dropdown dropdown1;
     [SerializeField] Slider slider;
+    [SerializeField] Toggle toggle;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetVolumeValue();
+        GetGraphicsValue();
+        GetShipValue();
+        GetMusicValue();
+    }
 
+    private void GetMusicValue()
+    {
         try
         {
-            
-            slider.value = PlayerPrefs.GetFloat("volume");
-            
-                
+            if (PlayerPrefs.GetString("music", "true") == "true")
+            {
+                toggle.isOn = true;
+            }
+            else
+            {
+                toggle.isOn = false;
+            }
+
+            ToggleMusic(toggle.isOn);
+
         }
         catch (System.Exception)
         {
-            slider.value = 1f;
+
+
 
         }
+        
+    }
+
+    private void GetShipValue()
+    {
+        try
+        {
+            dropdown1.value = PlayerPrefs.GetInt("PlayerShip", 0);
+        }
+        catch (System.Exception)
+        {
+
+
+
+        }
+        dropdown1.RefreshShownValue();
+    }
+
+    private void GetGraphicsValue()
+    {
         try
         {
             dropdown.value = PlayerPrefs.GetInt("Quality Index");
@@ -35,21 +70,25 @@ public class OptionsMenu : MonoBehaviour
         {
 
             dropdown.value = QualitySettings.GetQualityLevel();
-            
+
         }
         dropdown.RefreshShownValue();
-        LoadShipDropDown();
+    }
+
+    private void GetVolumeValue()
+    {
         try
         {
-            dropdown1.value = PlayerPrefs.GetInt("PlayerShip",0);
+
+            slider.value = PlayerPrefs.GetFloat("volume");
+
+
         }
         catch (System.Exception)
         {
-
-            
+            slider.value = 1f;
 
         }
-        dropdown1.RefreshShownValue();
     }
 
     // Update is called once per frame
@@ -63,6 +102,13 @@ public class OptionsMenu : MonoBehaviour
     {
         FindObjectOfType<SceneLoader>().audioMixer.SetFloat("volume", volume);
         PlayerPrefs.SetFloat("volume", volume);
+    }
+    public void ToggleMusic(bool musicToggle)
+    {
+        if(musicToggle)
+        PlayerPrefs.SetString("music", "true");
+        else
+        PlayerPrefs.SetString("music", "false");
     }
 
     public void SetQuality(int qualityIndex)
@@ -81,15 +127,5 @@ public class OptionsMenu : MonoBehaviour
         FindObjectOfType<SoundManager>().Clicked();
         PlayerPrefs.DeleteKey("HighScore");
     }
-    public void LoadShipDropDown()
-    {
-
-        
-        
-        //if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") 
-        //if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") 
-
-      
-
-    }
+    
 }

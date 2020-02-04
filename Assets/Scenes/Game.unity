@@ -3623,10 +3623,10 @@ MonoBehaviour:
   lastWavePlayedAd: 0
   shopMenuUI: {fileID: 304506039}
   itemDescriptionWindow: {fileID: 1716781348}
-  healthRefillPrice: 10
-  maxHealthIncreasePrice: 30
-  engineUpgradePrice: 45
-  stunRayPrice: 15
+  healthRefillPrice: 20
+  maxHealthIncreasePrice: 40
+  engineUpgradePrice: 50
+  stunRayPrice: 20
   firestormBombPrice: 30
   SCStormPrice: 20
   BSTitanPrice: 30
