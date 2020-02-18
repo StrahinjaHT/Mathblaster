@@ -125,10 +125,10 @@ public class GameSession : MonoBehaviour
         wave++;
         yield return new WaitUntil(() => FindObjectsOfType<Enemy>().Length < 1);        
         waveText.text = "Wave " + wave;
-        shop.EnableShopButton();
+        shop.EnableButton(shop.shopButton);
         yield return new WaitForSeconds(waveBreak);
         waveText.text = "";
-        shop.DisableShopButton();
+        shop.DisableButton(shop.shopButton);
         wait = false;
 
     }

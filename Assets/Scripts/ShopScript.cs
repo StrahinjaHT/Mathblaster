@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    [SerializeField] Button shopButton;
+    [SerializeField] public Button shopButton;
     [SerializeField] Button showAdButton;
     [SerializeField] Button purchaseSCStorm;
     [SerializeField] Button purchaseBSTitan;
@@ -13,8 +13,7 @@ public class ShopScript : MonoBehaviour
     public static bool descriptionWindowOpen = false;
     public GameObject shopMenuUI;
     public GameObject itemDescriptionWindow;
-    PlayerMovement playerMovement;
-    PlayerShooting playerShooting;
+
     PlayerShipSetter playerShip;
     GameSession gameSession;
    
@@ -40,9 +39,8 @@ public class ShopScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DisableShopButton();
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        playerShooting = FindObjectOfType<PlayerShooting>();
+        DisableButton(shopButton);
+
         playerShip = FindObjectOfType<PlayerShipSetter>();
         gameSession = FindObjectOfType<GameSession>();
         UpdateShopItemPrices();
@@ -51,10 +49,10 @@ public class ShopScript : MonoBehaviour
 
     private void UpdateShipPurchaseButtons()
     {
-        if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") DisablePurchaseSCStormButton();
-        else EnablePurchaseSCStormButton();
-        if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") DisablePurchaseBSTitanButton();
-        else EnablePurchaseBSTitanButton();
+        if (PlayerPrefs.GetString("SCStormUnlocked", "false") == "true") DisableButton(purchaseSCStorm);
+        else EnableButton(purchaseSCStorm);
+        if (PlayerPrefs.GetString("BSTitanUnlocked", "false") == "true") DisableButton(purchaseBSTitan);
+        else EnableButton(purchaseBSTitan);
     }
 
     private void UpdateShopItemPrices()
@@ -71,25 +69,13 @@ public class ShopScript : MonoBehaviour
         
     }
 
-    public void DisableShopButton()
+    
+    public void EnableButton(Button button)
     {
         try
         {
-            shopButton.interactable = false;
-            shopButton.spriteState.Equals(shopButton.spriteState.disabledSprite);
-        }
-        catch (System.Exception)
-        {
-
-            
-        }
-    }
-    public void DisablePurchaseSCStormButton()
-    {
-        try
-        {
-            purchaseSCStorm.interactable = false;
-            purchaseSCStorm.spriteState.Equals(purchaseSCStorm.spriteState.disabledSprite);
+            button.interactable = true;
+            button.spriteState.Equals(button.spriteState.highlightedSprite);
         }
         catch (System.Exception)
         {
@@ -97,12 +83,12 @@ public class ShopScript : MonoBehaviour
 
         }
     }
-    public void DisablePurchaseBSTitanButton()
+    public void DisableButton(Button button)
     {
         try
         {
-            purchaseBSTitan.interactable = false;
-            purchaseBSTitan.spriteState.Equals(purchaseBSTitan.spriteState.disabledSprite);
+            button.interactable = false;
+            button.spriteState.Equals(button.spriteState.disabledSprite);
         }
         catch (System.Exception)
         {
@@ -110,45 +96,7 @@ public class ShopScript : MonoBehaviour
 
         }
     }
-    public void EnableShopButton()
-    {
-        try
-        {
-            shopButton.interactable = true;
-            shopButton.spriteState.Equals(shopButton.spriteState.highlightedSprite);
-        }
-        catch (System.Exception)
-        {
 
-            
-        }
-    }
-    public void EnablePurchaseSCStormButton()
-    {
-        try
-        {
-            purchaseSCStorm.interactable = true;
-            purchaseSCStorm.spriteState.Equals(purchaseSCStorm.spriteState.highlightedSprite);
-        }
-        catch (System.Exception)
-        {
-
-
-        }
-    }
-    public void EnablePurchaseBSTitanButton()
-    {
-        try
-        {
-            purchaseBSTitan.interactable = true;
-            purchaseBSTitan.spriteState.Equals(purchaseBSTitan.spriteState.highlightedSprite);
-        }
-        catch (System.Exception)
-        {
-
-
-        }
-    }
     public void ToggleShopWindow()
     {
         if (PauseGame.gameIsPaused) return;
@@ -181,41 +129,16 @@ public class ShopScript : MonoBehaviour
     }
 
 
-    public void EnableShowAdButton()
-    {
-        try
-        {
-            showAdButton.interactable = true;
-            showAdButton.spriteState.Equals(showAdButton.spriteState.highlightedSprite);
-        }
-        catch (System.Exception)
-        {
-
-
-        }
-    }
-    public void DisableShowAdButton()
-    {
-        try
-        {
-            showAdButton.interactable = false;
-            showAdButton.spriteState.Equals(showAdButton.spriteState.disabledSprite);
-        }
-        catch (System.Exception)
-        {
-
-
-        }
-    }
+  
     // Update is called once per frame
     void Update()
     {
         if (gameSession.wave > lastWavePlayedAd && FindObjectOfType<AdController>().RewardedVideoIsReady())
         {
 
-            EnableShowAdButton();
+            EnableButton(showAdButton);
         }
-        else DisableShowAdButton();
+        else DisableButton(showAdButton);
     }
     public void PurchaseHealthRefill()
     {
@@ -320,7 +243,7 @@ public class ShopScript : MonoBehaviour
     {
         FindObjectOfType<AdController>().ShowRewardedVideoAd();
 
-        DisableShowAdButton();
+        DisableButton(showAdButton);
         lastWavePlayedAd = gameSession.wave;
     }
 
