@@ -77,7 +77,7 @@ public class PlayerShipSetter : MonoBehaviour
             if (overheatFactor > maxOverheat)
             {
                 overheatFactor = maxOverheat;
-                lockGun();
+                LockGun();
             }
             else if (overheatFactor + playerShooting.bulletObject.number > maxOverheat && !gunLock)
             {
@@ -92,19 +92,19 @@ public class PlayerShipSetter : MonoBehaviour
 
         else
         {
-            unlockGun();
+            UnlockGun();
         }
 
         slowFactor = overheatFactor / maxOverheat;
         GameObject.Find("Overheat Bar").GetComponent<SimpleHealthBar>().UpdateBar(overheatFactor, maxOverheat);
     }
-    public void lockGun()
+    public void LockGun()
     {
         gunLock = true;
         gunOverheatedText.enabled = true;
         overheatBar.color = Color.red;
     }
-    public void unlockGun()
+    public void UnlockGun()
     {
         gunLock = false;
         gunOverheatedText.enabled = false;

@@ -8,7 +8,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI waveText;
     
-    [SerializeField] public List<EnemyObject> enemies;
+    //[SerializeField] public List<EnemyObject> enemies;
     [SerializeField] public List<BulletObject> bulletObjects;
     [SerializeField] public GameObject Point;
 
@@ -28,7 +28,7 @@ public class GameSession : MonoBehaviour
     public float timePassed = 0f;
     public bool wait = false;
 
-    public static int counter = 1;
+    //public static int counter = 1;
 
     private void Awake()
     {

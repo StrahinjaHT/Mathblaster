@@ -10,9 +10,8 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] TextMeshProUGUI startMenuHighScoreText;
     public AudioMixer audioMixer;
 
-    bool showingBannerAd = false;
+    public static int counter = 1;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +52,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGame()
     {
-        if (SceneManager.GetActiveScene().name == "Game Over" && GameSession.counter%5==0)
+        if (SceneLoader.counter%5==0)
         {
             PlayVideoAd();
         }
-        GameSession.counter++;
+        SceneLoader.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Game");
         
@@ -76,9 +75,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadMenu()
     {
-        if (GameSession.counter % 5 == 0) 
+        if (SceneLoader.counter % 5 == 0) 
         PlayVideoAd();
-        GameSession.counter++;
+        SceneLoader.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Start Menu");
         
@@ -97,9 +96,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadOptionsMenu()
     {
-        if (GameSession.counter % 5 == 0)
+        if (SceneLoader.counter % 5 == 0)
             PlayVideoAd();
-        GameSession.counter++;
+        SceneLoader.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Options Menu");
       
@@ -107,9 +106,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadHelpScreen()
     {
-        if (GameSession.counter % 5 == 0)
+        if (SceneLoader.counter % 5 == 0)
             PlayVideoAd();
-        GameSession.counter++;
+        SceneLoader.counter++;
         FindObjectOfType<SoundManager>().Clicked();
         SceneManager.LoadScene("Help Screen");
 
@@ -117,9 +116,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadGameOver()
     {
-        if (GameSession.counter % 5 == 0)
+        if (SceneLoader.counter % 5 == 0)
             PlayVideoAd();
-        GameSession.counter++;
+        SceneLoader.counter++;
         SceneManager.LoadScene("Game Over");
         
         

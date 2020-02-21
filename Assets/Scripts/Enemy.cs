@@ -133,17 +133,17 @@ public class Enemy : MonoBehaviour
             }
 
         }
-        if (found == false)
-        {
-            foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
-            {
-                if (e.number == x)
-                {
-                    enemySpawner.enemy.enemyObject = e;
-                }
+        //if (found == false)
+        //{
+        //    foreach (EnemyObject e in FindObjectOfType<GameSession>().enemies)
+        //    {
+        //        if (e.number == x)
+        //        {
+        //            enemySpawner.enemy.enemyObject = e;
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
 
         Enemy en= Instantiate(enemySpawner.enemy, transform.position, Quaternion.identity);

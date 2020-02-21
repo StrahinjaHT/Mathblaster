@@ -8,7 +8,7 @@ public class AdController : MonoBehaviour,IUnityAdsListener
 
     private string videoAd = "video";
     private string rewardedVideoAd = "rewardedVideo";
-    private string bannerAd = "BannerAd";
+    //private string bannerAd = "BannerAd";
 
     private void Awake()
     {

@@ -6,7 +6,7 @@ public class EnemySpawner : Spawner
 
     public Enemy enemy;
     public List<EnemyObject> Enemies;
-    
+    int enemyCounter = 1;
 
     // Start is called before the first frame update
     public override void Start()
@@ -27,11 +27,14 @@ public class EnemySpawner : Spawner
         if (FindObjectOfType<GameSession>().wave % addEveryWave == 0)
             for (int i = 0; i < numberOfTypesPerWave; i++)
             {
-                if (gameSession.enemies.Count != 0)
+                //if (gameSession.enemies.Count != 0)
+                if(enemyCounter<=100)
                 {
-                    EnemyObject newEnemy = gameSession.enemies[0];
-                    gameSession.enemies.Remove(newEnemy);
+                    //EnemyObject newEnemy = gameSession.enemies[0];
+                    //gameSession.enemies.Remove(newEnemy);
+                    EnemyObject newEnemy = Resources.Load<EnemyObject>($"ScriptableObjects/Enemies/{enemyCounter.ToString()}");
                     Enemies.Add(newEnemy);
+                    enemyCounter++;
 
 
                 }
@@ -66,11 +69,14 @@ public class EnemySpawner : Spawner
     {
         for (int i = 0; i < numberOfTypesAtStart; i++)
         {
-            if (gameSession.enemies.Count != 0)
+            //if (gameSession.enemies.Count != 0)
+            if (enemyCounter <= 100)
             {
-                EnemyObject newEnemy = gameSession.enemies[0];
-                gameSession.enemies.Remove(newEnemy);
+                //EnemyObject newEnemy = gameSession.enemies[0];
+                //gameSession.enemies.Remove(newEnemy);
+                EnemyObject newEnemy = Resources.Load<EnemyObject>($"ScriptableObjects/Enemies/{enemyCounter.ToString()}");
                 Enemies.Add(newEnemy);
+                enemyCounter++;
 
 
             }

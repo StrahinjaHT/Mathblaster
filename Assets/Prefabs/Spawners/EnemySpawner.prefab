@@ -271,12 +271,14 @@ MonoBehaviour:
   - {fileID: 1060019905}
   - {fileID: 1598575611}
   minStartTimeBetweenSpawns: 1
-  maxStartTimeBetweenSpawns: 3
+  maxStartTimeBetweenSpawns: 2
   spawnDuringBreak: 0
   numberOfTypesAtStart: 3
+  numberOfTypesPerWave: 1
+  addEveryWave: 1
+  numberOfSpawnsAtMoment: 1
   enemy: {fileID: 662861468615883712, guid: fa2cc6f21717b3648b78c561c5b774ab, type: 3}
   Enemies: []
-  numberOfAddedEnemiesPerWave: 1
 --- !u!1 &8673225668681023196
 GameObject:
   m_ObjectHideFlags: 0
